@@ -1,0 +1,43 @@
+local KeyList = {
+    "Bot-085-jdowei",
+    "Bot-168-gtfegt",
+    "Bot-206-efwtrt",
+    "Bot-789-fkephn",
+    "Bot-089-jfoe5o",
+    "Bot-468-fjeogh",
+    "Bot-864-tpwrfo",
+    "Bot-205-flghtg",
+    "Bot-896-fptfei",
+    "Bot-486-lefltn"
+}
+local Key_addm = {
+    "First"
+}
+if _G.Key == KeyList[1] then
+	_G.scrip = true
+    elseif _G.Key == KeyList[2] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[3] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[4] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[5] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[6] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[7] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[8] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[9] then
+        _G.scrip = true
+    elseif _G.Key == KeyList[10] then
+        _G.scrip = true
+    elseif _G.scrip == true then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/BotHub-scrip/BotHub-Scrip/main/BotHub1"))()
+    elseif _G.Key == Key_addm then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/BotHub-scrip/BotHub-Scrip/main/BotHub1"))()
+else
+	game.Players.LocalPlayer:Kick("Key Erro")
+    wait(1)game:Shutdown()
+end
