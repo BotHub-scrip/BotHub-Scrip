@@ -1,0 +1,107 @@
+_G.AutoFram = true
+local CombatFramework = getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController']
+local Enemies = game:GetService("Workspace").Enemies
+function WarpTween(P)
+    local Pos = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    local tween_Service = game:service"TweenService"
+    local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
+    local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = P})
+    Warps:Play()
+    if Pos <= 20 then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+    end
+end
+function resetchar(Y,X)
+    while wait() do
+        if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= X then
+            WarpTween(Y)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Y
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+        else
+            break
+        end
+    end
+end
+function CheckPos(P)
+    local CP = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if CP <= 50 then
+        checklevel()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  = CFrameQuest
+        local args = {
+            [1] = "StartQuest",
+            [2] = QuestName,
+            [3] = QuestNumber
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+end
+function checklevel()
+	local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
+    if Level == 1 or Level <= 9 then
+        Mon = "Bandit"
+        CFramePuk = CFrame.new(1098.90247, 67.0395203, 1616.08984, 0.0688105226, 1.89194598e-08, -0.997629762, -2.03779624e-08, 1, 1.7558861e-08, 0.997629762, 1.9121428e-08, 0.0688105226)
+        CFrameQuest = CFrame.new(1059.96899, 17.0475254, 1549.3396, -0.929264307, 4.23960245e-09, 0.369415551, 1.78822568e-10, 1, -1.10266853e-08, -0.369415551, -1.01806457e-08, -0.929264307)
+        QuestName = "BanditQuest1"
+        QuestNumber = 1
+        SpawnPoint = "Default"
+    elseif Level == 10 or Level <= 14 then
+        Mon = "Monkey"
+		QuestName = "JungleQuest"
+		QuestNumber = 1
+		CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
+		CFramePuk = CFrame.new(-1776.32959, 61.1782455, 66.8902054, -0.912609756, -2.38546143e-08, 0.408831745, -2.14773621e-08, 1, 1.04056577e-08, -0.408831745, 7.15677129e-10, -0.912609756)
+        SpawnPoint = "Jungle"
+    elseif Level == 15 or Level <= 299 then
+        Mon = "Gorilla"
+        QuestName = "JungleQuest"
+        QuestNumber = 2
+        CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
+        CFramePuk = CFrame.new(-1303.07373, 18.7467499, -499.839661, 0.373730659, -1.60087321e-09, -0.927537262, -7.76281261e-09, 1, -4.85379381e-09, 0.927537262, 9.01431019e-09, 0.373730659)
+        SpawnPoint = "Jungle"
+    end
+end
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if _G.AutoFram then
+                checklevel()
+                if game:GetService("Players").localPlayer.PlayerGui.Main.Quest.Visible == true then
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        for i,v2 in pairs(Enemies:GetChildren()) do
+                            if v.Name == Mon and v2.Name == Mon then
+                                v.HumanoidRootPart.CFrame = v2.HumanoidRootPart.CFrame
+                                WarpTween(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(150,50,150)
+                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                                require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+                                CombatFramework.timeToNextAttack = 0
+                                CombatFramework.hitboxMagnitude = 150
+                                CombatFramework:attack()
+                            else
+                                WarpTween(CFramePuk)
+                            end
+                        end
+                    end
+                    if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Mon) then
+                        local args = {
+                            [1] = "AbandonQuest"
+                        }
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    end
+                    if not game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("LeftHand_BusoLayer1") then
+                        local args = {
+                            [1] = "Buso"
+                        }
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    end
+                else
+                    checklevel()
+                    WarpTween(CFrameQuest)
+                    CheckPos(CFrameQuest)
+                    resetchar(CFrameQuest,SpawnPoint)
+                end
+            end
+        end)
+    end
+end)
