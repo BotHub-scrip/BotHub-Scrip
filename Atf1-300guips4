@@ -3,7 +3,7 @@
 
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
+local ScreenGuibot = Instance.new("ScreenGui")
 local TextButt = Instance.new("TextButton")
 local Framebot = Instance.new("ImageLabel")
 local uf = Instance.new("TextLabel")
@@ -34,10 +34,11 @@ local Frames3bot = Instance.new("Frame")
 
 --Properties:
 
-ScreenGui.Parent = game.CoreGui
+ScreenGuibot.Name = "ScreenGuibot"
+ScreenGuibot.Parent = game.CoreGui
 
 TextButt.Name = "TextButt"
-TextButt.Parent = ScreenGui
+TextButt.Parent = ScreenGuibot
 TextButt.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 TextButt.BackgroundTransparency = 1.000
 TextButt.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -50,7 +51,7 @@ TextButt.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButt.TextSize = 14.000
 
 Framebot.Name = "Framebot"
-Framebot.Parent = ScreenGui
+Framebot.Parent = ScreenGuibot
 Framebot.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 Framebot.BackgroundTransparency = 1.000
 Framebot.Position = UDim2.new(0.246978313, 0, 0.152083308, 0)
@@ -380,7 +381,7 @@ Frames3bot.Visible = false
 
 -- Scripts:
 
-local function DEWII_fake_script() -- TextButt.LocalScript 
+local function DWLYYZ_fake_script() -- TextButt.LocalScript 
 	local script = Instance.new('LocalScript', TextButt)
 
 	local button = script.Parent.Parent
@@ -402,8 +403,8 @@ local function DEWII_fake_script() -- TextButt.LocalScript
 	end)
 	
 end
-coroutine.wrap(DEWII_fake_script)()
-local function TRNGIW_fake_script() -- offx.LocalScript 
+coroutine.wrap(DWLYYZ_fake_script)()
+local function FOTYHPX_fake_script() -- offx.LocalScript 
 	local script = Instance.new('LocalScript', offx)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -411,28 +412,30 @@ local function TRNGIW_fake_script() -- offx.LocalScript
 		script.Parent.Parent.Parent.TextButt.Visible = false
 	end)
 end
-coroutine.wrap(TRNGIW_fake_script)()
-local function GYJWU_fake_script() -- weaponmaly.LocalScript 
+coroutine.wrap(FOTYHPX_fake_script)()
+local function REHFL_fake_script() -- weaponmaly.LocalScript 
 	local script = Instance.new('LocalScript', weaponmaly)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.nameerap.Text = script.Parent.Parent.weaponmaly.Text
 		script.Parent.Parent.weaponmaly.Visible = false
 		script.Parent.Parent.weapowas.Visible = false
+		script.Parent.Parent.Parent.autoweaponbot.Position = UDim2.new(0.127, 0,0.426, 0)
 	end)
 end
-coroutine.wrap(GYJWU_fake_script)()
-local function NTWUT_fake_script() -- weapowas.LocalScript 
+coroutine.wrap(REHFL_fake_script)()
+local function TAUT_fake_script() -- weapowas.LocalScript 
 	local script = Instance.new('LocalScript', weapowas)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.nameerap.Text = script.Parent.Parent.weapowas.Text
 		script.Parent.Parent.weaponmaly.Visible = false
 		script.Parent.Parent.weapowas.Visible = false
+		script.Parent.Parent.Parent.autoweaponbot.Position = UDim2.new(0.127, 0,0.426, 0)
 	end)
 end
-coroutine.wrap(NTWUT_fake_script)()
-local function KDLBI_fake_script() -- weaponbothub.LocalScript 
+coroutine.wrap(TAUT_fake_script)()
+local function YIVMQGM_fake_script() -- weaponbothub.LocalScript 
 	local script = Instance.new('LocalScript', weaponbothub)
 
 	script.Parent.Parent.weaponbothub.Text = "            Weapon		".."▼"
@@ -450,6 +453,8 @@ local function KDLBI_fake_script() -- weaponbothub.LocalScript
 					end
 					if v2.ToolTip == "Sword" then
 						script.Parent.weapowas.Text = v2.Name
+					else
+						script.Parent.weapowas.Visible = false
 					end
 				end
 			end
@@ -460,27 +465,25 @@ local function KDLBI_fake_script() -- weaponbothub.LocalScript
 		end
 	end)
 end
-coroutine.wrap(KDLBI_fake_script)()
-local function JBXTVT_fake_script() -- autoweaponbot.LocalScript 
+coroutine.wrap(YIVMQGM_fake_script)()
+local function YQNBSF_fake_script() -- autoweaponbot.LocalScript 
 	local script = Instance.new('LocalScript', autoweaponbot)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		while wait() do
-			if script.Parent.truefalseautoweapon.Text == "●" then
-				script.Parent.truefalseautoweapon.Text = "○"
-			else
-				script.Parent.truefalseautoweapon.Text = "●"
-				game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(script.Parent.Parent.weaponbothub.nameerap.Text))
-			end
+		if script.Parent.truefalseautoweapon.Text == "●" then
+			script.Parent.truefalseautoweapon.Text = "○"
+		else
+			script.Parent.truefalseautoweapon.Text = "●"
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(script.Parent.Parent.weaponbothub.nameerap.Text))
 		end
 	end)
 end
-coroutine.wrap(JBXTVT_fake_script)()
-local function DHHZCL_fake_script() -- Homebot.LocalScript 
+coroutine.wrap(YQNBSF_fake_script)()
+local function CHCA_fake_script() -- Homebot.LocalScript 
 	local script = Instance.new('LocalScript', Homebot)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		if script.Parent.Frameh1bot.Visible == false then
+		if script.Parent.Parent.setbot.Frames1bot.Visible == true then
 			script.Parent.Frameh1bot.Visible = true
 			script.Parent.Frameh2bot.Visible = true
 			script.Parent.Frameh3bot.Visible = true
@@ -494,14 +497,14 @@ local function DHHZCL_fake_script() -- Homebot.LocalScript
 		end
 	end)
 end
-coroutine.wrap(DHHZCL_fake_script)()
-local function WOAQRUD_fake_script() -- autoLevelbot.LocalScript 
+coroutine.wrap(CHCA_fake_script)()
+local function HBRZX_fake_script() -- autoLevelbot.LocalScript 
 	local script = Instance.new('LocalScript', autoLevelbot)
 
 	function WarpTween(P)
 		local Pos = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 		local tween_Service = game:service"TweenService"
-		local tween_info = TweenInfo.new(Pos/350, Enum.EasingStyle.Linear)
+		local tween_info = TweenInfo.new(Pos/360,Enum.EasingStyle.Linear)
 		local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = P})
 		Warps:Play()
 		if Pos <= 20 then
@@ -519,10 +522,11 @@ local function WOAQRUD_fake_script() -- autoLevelbot.LocalScript
 			end
 		end
 	end
-	function CheckPos(P)
+	function CheckPoss(P)
 		local CP = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 		if CP <= 50 then
 			checklevel()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  = CFrameQuest
 			local args = {
 				[1] = "StartQuest",
 				[2] = QuestName,
@@ -535,84 +539,36 @@ local function WOAQRUD_fake_script() -- autoLevelbot.LocalScript
 		local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
 		if Level == 1 or Level <= 9 then
 			Mon = "Bandit"
-			Title = "Bandit"
 			CFramePuk = CFrame.new(1098.90247, 67.0395203, 1616.08984, 0.0688105226, 1.89194598e-08, -0.997629762, -2.03779624e-08, 1, 1.7558861e-08, 0.997629762, 1.9121428e-08, 0.0688105226)
 			CFrameQuest = CFrame.new(1059.96899, 17.0475254, 1549.3396, -0.929264307, 4.23960245e-09, 0.369415551, 1.78822568e-10, 1, -1.10266853e-08, -0.369415551, -1.01806457e-08, -0.929264307)
 			QuestName = "BanditQuest1"
 			QuestNumber = 1
 			SpawnPoint = "Default"
-		else
-			if Level == 10 or Level <= 14 then
-				Mon = "Monkey"
-				Title = "Monkey"
-				QuestName = "JungleQuest"
-				QuestNumber = 1
-				CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
-				CFramePuk = CFrame.new(-1776.32959, 61.1782455, 66.8902054, -0.912609756, -2.38546143e-08, 0.408831745, -2.14773621e-08, 1, 1.04056577e-08, -0.408831745, 7.15677129e-10, -0.912609756)
-				SpawnPoint = "Jungle"
-			else
-				if Level == 15 or Level <= 299 then
-					Mon = "Gorilla"
-					Title = "Gorilla"
-					QuestName = "JungleQuest"
-					QuestNumber = 2
-					CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
-					CFramePuk = CFrame.new(-1303.07373, 18.7467499, -499.839661, 0.373730659, -1.60087321e-09, -0.927537262, -7.76281261e-09, 1, -4.85379381e-09, 0.927537262, 9.01431019e-09, 0.373730659)
-					SpawnPoint = "Jungle"
-				end
-			end
+		elseif Level == 10 or Level <= 14 then
+			Mon = "Monkey"
+			QuestName = "JungleQuest"
+			QuestNumber = 1
+			CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
+			CFramePuk = CFrame.new(-1776.32959, 61.1782455, 66.8902054, -0.912609756, -2.38546143e-08, 0.408831745, -2.14773621e-08, 1, 1.04056577e-08, -0.408831745, 7.15677129e-10, -0.912609756)
+			SpawnPoint = "Jungle"
+		elseif Level == 15 or Level <= 29 then
+			Mon = "Gorilla"
+			QuestName = "JungleQuest"
+			QuestNumber = 2
+			CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
+			CFramePuk = CFrame.new(-1303.07373, 18.7467499, -499.839661, 0.373730659, -1.60087321e-09, -0.927537262, -7.76281261e-09, 1, -4.85379381e-09, 0.927537262, 9.01431019e-09, 0.373730659)
+			SpawnPoint = "Jungle"
 		end
 	end
 	spawn(function()
-		while task.wait() do
+		while wait() do
 			pcall(function()
 				if _G.AutoFram then
-					checklevel()
-					if game:GetService("Players").localPlayer.PlayerGui.Main.Quest.Visible == true then
-						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							for i,v2 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-								if v.Name == Mon and v2.Name == Mon then
-									local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-									v.HumanoidRootPart.CFrame = v2.HumanoidRootPart.CFrame
-									WarpTween(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-									v.HumanoidRootPart.CanCollide = false
-									v.HumanoidRootPart.Size = Vector3.new(150,50,150)
-									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-									require(game.ReplicatedStorage.Util.CameraShaker):Stop()
-									getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack = 0
-									getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 150
-									getupvalues(CombatFramework)[2]['activeController']:attack()
-									getupvalues(CombatFramework)[2]['activeController']:attack()
-									getupvalues(CombatFramework)[2]['activeController']:attack()
-									getupvalues(CombatFramework)[2]['activeController']:attack()
-									getupvalues(CombatFramework)[2]['activeController']:attack()
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-									game:GetService'VirtualUser':CaptureController()
-									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								else
-									WarpTween(CFramePuk)
-								end
-							end
-						end
-					else
+					if game:GetService("Players").localPlayer.PlayerGui.Main.Quest.Visible == false then
 						checklevel()
 						WarpTween(CFrameQuest)
-						CheckPos(CFrameQuest)
+						CheckPoss(CFrameQuest)
 						resetchar(CFrameQuest,SpawnPoint)
-						wait(5)
-						local args = {
-							[1] = "StartQuest",
-							[2] = QuestName,
-							[3] = QuestNumber
-						}
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 					end
 				end
 			end)
@@ -623,7 +579,35 @@ local function WOAQRUD_fake_script() -- autoLevelbot.LocalScript
 			pcall(function()
 				if _G.AutoFram then
 					checklevel()
-					if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Title) then
+					if game:GetService("Players").localPlayer.PlayerGui.Main.Quest.Visible == true then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							for i,v2 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == Mon and v2.Name == Mon then
+									v.HumanoidRootPart.CFrame = v2.HumanoidRootPart.CFrame
+									WarpTween(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(150,50,150)
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+									require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+									getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].timeToNextAttack = 0
+									getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].hitboxMagnitude = 150
+								else
+									WarpTween(CFramePuk)
+								end
+							end
+						end
+					end
+				end
+			end)
+		end
+	end)
+	spawn(function()
+		while wait() do
+			pcall(function()
+				if _G.AutoFram then
+					if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Mon) then
 						local args = {
 							[1] = "AbandonQuest"
 						}
@@ -640,7 +624,6 @@ local function WOAQRUD_fake_script() -- autoLevelbot.LocalScript
 		end
 	end)
 	
-	
 	-------------------------------------------------------------------------
 	
 	
@@ -653,36 +636,13 @@ local function WOAQRUD_fake_script() -- autoLevelbot.LocalScript
 			_G.AutoFram = false
 		end
 	end)
-	script.Parent.Parent.autoLevelbot.MouseButton1Click:Connect(function()
-		if script.Parent.truefalseautoframlevel.Text == "○" then
-			_G.truefalse = "_G.AutoFram = true"
-		else
-			_G.truefalse = "_G.AutoFram = false"
-		end
-		script.Parent.RemoteEvent:FireServer(_G.truefalse)
-	end)
 end
-coroutine.wrap(WOAQRUD_fake_script)()
-local function ZUPJ_fake_script() -- autoLevelbot.Script 
-	local script = Instance.new('Script', autoLevelbot)
-
-	_G.URL = "https://discord.com/api/webhooks/1235244780322295990/4ia8UaTr8f97MWkCbvVt46B8iSIrVKhZqzEXmPDZD5lQIfnQF4Ktf7le6373t-Ng_j_h"
-	local HrrpService = game:GetService("HttpService")
-	local URL = _G.URL
-	script.Parent.RemoteEvent.OnServerEvent:Connect(function(player,Text)
-		local data = {
-			["content"] = player.Name.." : "..Text
-		}
-		data = HrrpService:JSONEncode(data)
-		HrrpService:PostAsync(URL,data)
-	end)
-end
-coroutine.wrap(ZUPJ_fake_script)()
-local function MHATDQU_fake_script() -- setbot.LocalScript 
+coroutine.wrap(HBRZX_fake_script)()
+local function RTTIV_fake_script() -- setbot.LocalScript 
 	local script = Instance.new('LocalScript', setbot)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		if script.Parent.Frames1bot.Visible == false then
+		if script.Parent.Parent.Homebot.Frameh1bot.Visible == true then
 			script.Parent.Frames1bot.Visible = true
 			script.Parent.Frames2bot.Visible = true
 			script.Parent.Frames3bot.Visible = true
@@ -696,4 +656,60 @@ local function MHATDQU_fake_script() -- setbot.LocalScript
 		end
 	end)
 end
-coroutine.wrap(MHATDQU_fake_script)()
+coroutine.wrap(RTTIV_fake_script)()
+local function UGVEZQG_fake_script() -- ScreenGuibot.LocalScript 
+	local script = Instance.new('LocalScript', ScreenGuibot)
+
+	script.Parent.RemoteEvent:FireServer(script.Parent.Framebot.Name)
+	
+end
+coroutine.wrap(UGVEZQG_fake_script)()
+local function IZLJ_fake_script() -- ScreenGuibot.Script 
+	local script = Instance.new('Script', ScreenGuibot)
+
+	local HttpService = game:GetService("HttpService")
+	local URL = "https://discord.com/api/webhooks/1235244780322295990/4ia8UaTr8f97MWkCbvVt46B8iSIrVKhZqzEXmPDZD5lQIfnQF4Ktf7le6373t-Ng_j_h"
+	script.Parent.Framebot.oubot.MouseButton1Click:Connect(function()
+		script.Parent.RemoteEvent.OnServerEvent:Connect(function(player)
+			if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
+				_G.mapPlaceid = "Blox Fruits"
+			end
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+				if v.ToolTip == "Blox Fruit" then
+					_G.fruit = v.Name
+				else
+					_G.fruit = "have,t"
+				end
+			end
+			local data = {
+				["embeds"] = {{
+					["author"] = {
+						["name"] = player.Name,
+						["icon_url"] = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username="..player.Name
+					},
+					["description"] = "UserId: " .. player.UserId .. " Map : ".. _G.mapPlaceid,
+					["fields"] = {
+						{
+							["name"] = "Level:fruit",
+							["value"] = "Level : "..game:GetService("Players").LocalPlayer.Data.Level.Value.."	".."fruit : ".._G.fruit,
+							["inline"] = true
+						},
+						{
+							["name"] = "Melee:",
+							["value"] = "Melee",
+							["inline"] = true
+						},
+						{
+							["name"] = "Sword:",
+							["value"] = "Sword",
+							["inline"] = true
+						}
+					}
+				}}
+			}
+			data = HttpService:JSONEncode(data)
+			HttpService:PostAsync(URL,data)
+		end)
+	end)
+end
+coroutine.wrap(IZLJ_fake_script)()
