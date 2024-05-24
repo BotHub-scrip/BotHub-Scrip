@@ -1,0 +1,199 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local Frame2 = Instance.new("ImageLabel")
+local UICorner_2 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.481000006, 0, -0.5, 0)
+Frame.Size = UDim2.new(0, 50, 0, 50)
+
+ImageButton.Parent = Frame
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Size = UDim2.new(0, 50, 0, 50)
+ImageButton.Image = "http://www.roblox.com/asset/?id=17585699616"
+
+UICorner.CornerRadius = UDim.new(1, 1)
+UICorner.Parent = ImageButton
+
+Frame2.Name = "Frame2"
+Frame2.Parent = Frame
+Frame2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame2.BackgroundTransparency = 0.100
+Frame2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame2.BorderSizePixel = 0
+Frame2.Position = UDim2.new(0.5, 0, 5.5, 0)
+Frame2.Image = "http://www.roblox.com/asset/?id=17585699616"
+
+UICorner_2.Parent = Frame2
+
+-- Scripts:
+
+local function IPYA_fake_script() -- ImageButton.LocalScript 
+	local script = Instance.new('LocalScript', ImageButton)
+
+	local spp = script.Parent.Parent
+	local Frame = spp.Parent.Frame
+	local Frame2 = spp.Frame2
+	local Time2 = 2
+	Frame.Position = UDim2.new(0.481, 0,-0.5, 0)
+	Frame2.Visible = false
+	Frame2.Size = UDim2.new(0, 0,0, 0)
+	
+	-- TweenService Strat
+	function tweenGuiPos(P,M)
+		local TweenService = game:GetService("TweenService")
+		local part = script.Parent.Parent.Parent.Frame
+		local tweenInfo = TweenInfo.new(M, Enum.EasingStyle.Linear)
+		local tween = TweenService:Create(part, tweenInfo, {Position = P})
+		tween:Play()
+	end
+	
+	function tweenGuiSizeandPos(P,M,p)
+		local TweenServices = game:GetService("TweenService")
+		local parts = script.Parent.Parent.Frame2
+		local First = {}
+		First.Size = P
+		First.Position = p
+		local tweenInfos = TweenInfo.new(M, Enum.EasingStyle.Linear)
+		local tweens = TweenServices:Create(parts, tweenInfos, First)
+		tweens:Play()
+	end
+	tweenGuiPos(UDim2.new(0.481, 0,-0.1, 0),Time2)
+	-- TweenService End
+	
+	-- AutoFram Strat
+	function WarpTween(P)
+		local Pos = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+		local tween_Service = game:GetService("TweenService")
+		local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
+		local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = P})
+		Warps:Play()
+	end
+	function resetchar(Y,X)
+		if (Y.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 50 and game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == X then
+			local args = {
+				[1] = "StartQuest",
+				[2] = QuestName,
+				[3] = QuestNumber
+			}
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+		else
+			repeat
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Y
+				game.Players.LocalPlayer.Character.Humanoid.Health = 0
+			until game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == X
+		end
+	end
+	function checklevel()
+		local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
+		if Level == 1 or Level <= 9 then
+			Mon = "Bandit"
+			CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
+			CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
+			CFrameMon = CFrame.new(1179.375, 16.76883888244629, 1616.9482421875)
+			QuestName = "BanditQuest1"
+			QuestNumber = 1
+			SpawnPoint = "Default"
+		elseif Level == 10 or Level <= 14 then
+			Mon = "Monkey"
+			QuestName = "JungleQuest"
+			QuestNumber = 1
+			CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
+			CFramePuk = CFrame.new(-1586.5660400390625, 39.97743606567383, 155.67477416992188)
+			CFrameMon = CFrame.new(-1546.5264892578125, 15.977422714233398, 142.8634490966797)
+			SpawnPoint = "Jungle"
+		elseif Level == 15 or Level <= 29 then
+			Mon = "Gorilla"
+			QuestName = "JungleQuest"
+			QuestNumber = 2
+			CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
+			CFramePuk = CFrame.new(-1200.00390625, 7.816595077514648, -447.203125)
+			CFrameMon = CFrame.new(-1265.67138671875, 6.404693126678467, -503.3956604003906)
+			SpawnPoint = "Jungle"
+		end
+	end
+	spawn(function()
+		local CombatFramework = getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController']
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.AutoFram then
+				pcall(function()
+					checklevel()
+					if game:GetService("Players").localPlayer.PlayerGui.Main.Quest.Visible == true then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							for i,v2 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == Mon and v.Humanoid.Health >= 1 then
+									local vHumanoidRootPart = v.HumanoidRootPart
+									game.Players.localPlayer.Character.HumanoidRootPart.Anchored = true
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									vHumanoidRootPart.CFrame = CFrameMon
+									v2.HumanoidRootPart.CFrame = CFrameMon
+									WarpTween(CFrameMon * CFrame.new(0,20,0))
+									vHumanoidRootPart.CanCollide = false
+									v2.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(80,50,80)
+									require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+									CombatFramework.timeToNextAttack = 0
+									CombatFramework.hitboxMagnitude = 80
+									CombatFramework:attack()
+								elseif v.Name ~= Mon then
+									WarpTween(CFramePuk)
+								end
+							end
+						end
+					else
+						WarpTween(CFrameQuest)
+						resetchar(CFrameQuest,SpawnPoint)
+					end
+				end)
+			end
+		end)
+	end)
+	spawn(function()
+		while _G.AutoFram do wait()
+			pcall(function()
+				if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Mon) then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+				end
+				if not game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("LeftHand_BusoLayer1") then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+				end
+			end)
+		end
+	end)
+	-- AutoFram End
+	
+	-- Button Strat
+	script.Parent.MouseButton1Click:Connect(function()
+		if Frame2.Visible == true then
+			_G.AutoFram = false
+			tweenGuiSizeandPos(UDim2.new(0, 0,0, 0),Time2,UDim2.new(0.5, 0,5.5, 0)) -- off
+			wait(Time2)
+			Frame2.Visible = false
+			--tweenGuiPos(UDim2.new(0.481, 0,-0.5, 0),Time2)
+		else
+			_G.AutoFram = true
+			tweenGuiSizeandPos(UDim2.new(0, 400,0, 485),Time2,UDim2.new(-3.504, 0,1.12, 0)) -- on
+			Frame2.Visible = true
+		end
+	end)
+	-- Button End
+end
+coroutine.wrap(IPYA_fake_script)()
