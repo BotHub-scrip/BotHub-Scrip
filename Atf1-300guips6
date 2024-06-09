@@ -1,0 +1,591 @@
+-- Gui to Lua New
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGuiBotHub = Instance.new("ScreenGui")
+local FrameBot = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+local smallGui = Instance.new("TextButton")
+local TweenGui_bot = Instance.new("TextButton")
+local closeGui = Instance.new("TextButton")
+local supsmallGui = Instance.new("TextButton")
+local Main = Instance.new("TextLabel")
+local MainButtion = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local ButtionName_Main = Instance.new("TextLabel")
+local MainFrame1 = Instance.new("Frame")
+local TextMain1 = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local TextFram2 = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local TextFramName = Instance.new("TextLabel")
+local Framoffon = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+local ButtonFram = Instance.new("TextButton")
+local Framoff = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local Framon = Instance.new("TextLabel")
+local UICorner_8 = Instance.new("UICorner")
+local TextAutoEquip = Instance.new("TextLabel")
+local UICorner_9 = Instance.new("UICorner")
+local TextEquip2 = Instance.new("TextLabel")
+local UICorner_10 = Instance.new("UICorner")
+local TextEquipName = Instance.new("TextLabel")
+local Framoffon_2 = Instance.new("TextLabel")
+local UICorner_11 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local UICorner_12 = Instance.new("UICorner")
+local ButtonFram_2 = Instance.new("TextButton")
+local Framoff_2 = Instance.new("TextLabel")
+local UICorner_13 = Instance.new("UICorner")
+local Framon_2 = Instance.new("TextLabel")
+local UICorner_14 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local ster = Instance.new("TextLabel")
+local setting = Instance.new("TextLabel")
+local MainButtion_2 = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local ButtionName_Main_2 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGuiBotHub.Name = "ScreenGuiBotHub"
+ScreenGuiBotHub.Parent = game.CoreGui
+ScreenGuiBotHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+FrameBot.Name = "FrameBot"
+FrameBot.Parent = ScreenGuiBotHub
+FrameBot.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FrameBot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameBot.BorderSizePixel = 0
+FrameBot.Position = UDim2.new(0.290007502, 0, 0.130081281, 0)
+FrameBot.Size = UDim2.new(0.382999986, 0, 0.667999983, 0)
+FrameBot.Image = "http://www.roblox.com/asset/?id=17780002980"
+
+UICorner.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner.Parent = FrameBot
+
+smallGui.Name = "smallGui"
+smallGui.Parent = FrameBot
+smallGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+smallGui.BackgroundTransparency = 1.000
+smallGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+smallGui.BorderSizePixel = 0
+smallGui.Position = UDim2.new(0.868406713, 0, 0, 0)
+smallGui.Size = UDim2.new(0.0470468663, 0, 0.0608953871, 0)
+smallGui.Font = Enum.Font.SourceSans
+smallGui.Text = "⿻"
+smallGui.TextColor3 = Color3.fromRGB(255, 255, 255)
+smallGui.TextScaled = true
+smallGui.TextSize = 14.000
+smallGui.TextWrapped = true
+
+TweenGui_bot.Name = "TweenGui_bot"
+TweenGui_bot.Parent = FrameBot
+TweenGui_bot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TweenGui_bot.BackgroundTransparency = 1.000
+TweenGui_bot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TweenGui_bot.BorderSizePixel = 0
+TweenGui_bot.Position = UDim2.new(0, 0, -3.71676165e-08, 0)
+TweenGui_bot.Size = UDim2.new(1, 0, 0.0623385906, 0)
+TweenGui_bot.Font = Enum.Font.SourceSans
+TweenGui_bot.Text = ""
+TweenGui_bot.TextColor3 = Color3.fromRGB(0, 0, 0)
+TweenGui_bot.TextSize = 14.000
+
+closeGui.Name = "closeGui"
+closeGui.Parent = FrameBot
+closeGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+closeGui.BackgroundTransparency = 1.000
+closeGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+closeGui.BorderSizePixel = 0
+closeGui.Position = UDim2.new(0.915453553, 0, 0, 0)
+closeGui.Size = UDim2.new(0.0470468663, 0, 0.0608953871, 0)
+closeGui.Font = Enum.Font.SourceSans
+closeGui.Text = "X"
+closeGui.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeGui.TextScaled = true
+closeGui.TextSize = 14.000
+closeGui.TextWrapped = true
+
+supsmallGui.Name = "supsmallGui"
+supsmallGui.Parent = FrameBot
+supsmallGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+supsmallGui.BackgroundTransparency = 1.000
+supsmallGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+supsmallGui.BorderSizePixel = 0
+supsmallGui.Position = UDim2.new(0.821359873, 0, 0, 0)
+supsmallGui.Size = UDim2.new(0.0470468663, 0, 0.0608953871, 0)
+supsmallGui.Font = Enum.Font.SourceSans
+supsmallGui.Text = " ̶─ "
+supsmallGui.TextColor3 = Color3.fromRGB(255, 255, 255)
+supsmallGui.TextScaled = true
+supsmallGui.TextSize = 14.000
+supsmallGui.TextWrapped = true
+
+Main.Name = "Main"
+Main.Parent = FrameBot
+Main.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.0398077816, 0, 0.0976892263, 0)
+Main.Size = UDim2.new(0.0983346254, 0, 0.0625727624, 0)
+Main.Font = Enum.Font.SourceSans
+Main.Text = ""
+Main.TextColor3 = Color3.fromRGB(255, 255, 255)
+Main.TextScaled = true
+Main.TextSize = 14.000
+Main.TextWrapped = true
+
+MainButtion.Name = "MainButtion"
+MainButtion.Parent = Main
+MainButtion.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+MainButtion.BackgroundTransparency = 1.000
+MainButtion.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainButtion.BorderSizePixel = 0
+MainButtion.Position = UDim2.new(0.0392057188, 0, 0.097432673, 0)
+MainButtion.Size = UDim2.new(1, 0, 1, 0)
+MainButtion.Font = Enum.Font.SourceSans
+MainButtion.Text = ""
+MainButtion.TextColor3 = Color3.fromRGB(0, 0, 0)
+MainButtion.TextSize = 14.000
+
+UICorner_2.CornerRadius = UDim.new(0.5, 8)
+UICorner_2.Parent = Main
+
+ButtionName_Main.Name = "ButtionName_Main"
+ButtionName_Main.Parent = Main
+ButtionName_Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtionName_Main.BackgroundTransparency = 1.000
+ButtionName_Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtionName_Main.BorderSizePixel = 0
+ButtionName_Main.Position = UDim2.new(0.139999986, 0, 0.0799999982, 0)
+ButtionName_Main.Size = UDim2.new(0.699999928, 0, 0.819999993, 0)
+ButtionName_Main.Font = Enum.Font.SourceSans
+ButtionName_Main.Text = "Main"
+ButtionName_Main.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtionName_Main.TextScaled = true
+ButtionName_Main.TextSize = 14.000
+ButtionName_Main.TextWrapped = true
+
+MainFrame1.Name = "MainFrame1"
+MainFrame1.Parent = Main
+MainFrame1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame1.BackgroundTransparency = 0.500
+MainFrame1.BorderColor3 = Color3.fromRGB(70, 70, 70)
+MainFrame1.Position = UDim2.new(0.0398982055, 0, 1.3009764, 0)
+MainFrame1.Size = UDim2.new(9.24354935, 0, 12.4264469, 0)
+
+TextMain1.Name = "TextMain1"
+TextMain1.Parent = MainFrame1
+TextMain1.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+TextMain1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextMain1.BorderSizePixel = 0
+TextMain1.Position = UDim2.new(0.0412813835, 0, 0.0390257053, 0)
+TextMain1.Size = UDim2.new(0.915628493, 0, 0.121948585, 0)
+TextMain1.Font = Enum.Font.SourceSans
+TextMain1.Text = ""
+TextMain1.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextMain1.TextSize = 14.000
+
+UICorner_3.CornerRadius = UDim.new(0.100000001, 8)
+UICorner_3.Parent = TextMain1
+
+TextFram2.Name = "TextFram2"
+TextFram2.Parent = TextMain1
+TextFram2.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextFram2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextFram2.BorderSizePixel = 0
+TextFram2.Position = UDim2.new(0.00249999994, 0, 0.00999999978, 0)
+TextFram2.Size = UDim2.new(0.995325267, 0, 0.957723081, 0)
+TextFram2.Font = Enum.Font.SourceSans
+TextFram2.Text = ""
+TextFram2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextFram2.TextSize = 14.000
+
+UICorner_4.CornerRadius = UDim.new(0.100000001, 8)
+UICorner_4.Parent = TextFram2
+
+TextFramName.Name = "TextFramName"
+TextFramName.Parent = TextFram2
+TextFramName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextFramName.BackgroundTransparency = 1.000
+TextFramName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextFramName.BorderSizePixel = 0
+TextFramName.Position = UDim2.new(0.0471691415, 0, 0.0251671039, 0)
+TextFramName.Size = UDim2.new(0.239366725, 0, 0.906015754, 0)
+TextFramName.Font = Enum.Font.SourceSans
+TextFramName.Text = "AutoFram Level"
+TextFramName.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextFramName.TextScaled = true
+TextFramName.TextSize = 14.000
+TextFramName.TextWrapped = true
+
+Framoffon.Name = "Framoffon"
+Framoffon.Parent = TextFram2
+Framoffon.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+Framoffon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Framoffon.BorderSizePixel = 0
+Framoffon.Position = UDim2.new(0.869000018, 0, 0.194309503, 0)
+Framoffon.Size = UDim2.new(0.100135162, 0, 0.612843096, 0)
+Framoffon.Font = Enum.Font.SourceSans
+Framoffon.Text = ""
+Framoffon.TextColor3 = Color3.fromRGB(0, 0, 0)
+Framoffon.TextSize = 14.000
+
+UICorner_5.CornerRadius = UDim.new(1, 8)
+UICorner_5.Parent = Framoffon
+
+TextLabel.Parent = Framoffon
+TextLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0199999996, 0, 0.0299999993, 0)
+TextLabel.Size = UDim2.new(0.963896811, 0, 0.930897653, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = ""
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+UICorner_6.CornerRadius = UDim.new(1, 8)
+UICorner_6.Parent = TextLabel
+
+ButtonFram.Name = "ButtonFram"
+ButtonFram.Parent = TextLabel
+ButtonFram.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonFram.BackgroundTransparency = 1.000
+ButtonFram.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFram.BorderSizePixel = 0
+ButtonFram.Size = UDim2.new(1, 0, 1, 0)
+ButtonFram.Font = Enum.Font.SourceSans
+ButtonFram.Text = ""
+ButtonFram.TextColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFram.TextSize = 14.000
+
+Framoff.Name = "Framoff"
+Framoff.Parent = TextLabel
+Framoff.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+Framoff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Framoff.BorderSizePixel = 0
+Framoff.Position = UDim2.new(0.0500000007, 0, 0.0489999987, 0)
+Framoff.Size = UDim2.new(0.449999988, 0, 0.899999976, 0)
+Framoff.Font = Enum.Font.SourceSans
+Framoff.Text = ""
+Framoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+Framoff.TextSize = 14.000
+
+UICorner_7.CornerRadius = UDim.new(1, 0)
+UICorner_7.Parent = Framoff
+
+Framon.Name = "Framon"
+Framon.Parent = TextLabel
+Framon.BackgroundColor3 = Color3.fromRGB(15, 33, 150)
+Framon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Framon.BorderSizePixel = 0
+Framon.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+Framon.Size = UDim2.new(0.449999988, 0, 0.899999976, 0)
+Framon.Visible = false
+Framon.Font = Enum.Font.SourceSans
+Framon.Text = ""
+Framon.TextColor3 = Color3.fromRGB(0, 0, 0)
+Framon.TextSize = 14.000
+
+UICorner_8.CornerRadius = UDim.new(1, 0)
+UICorner_8.Parent = Framon
+
+TextAutoEquip.Name = "TextAutoEquip"
+TextAutoEquip.Parent = MainFrame1
+TextAutoEquip.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+TextAutoEquip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextAutoEquip.BorderSizePixel = 0
+TextAutoEquip.Position = UDim2.new(0.039123252, 0, 0.191871434, 0)
+TextAutoEquip.Size = UDim2.new(0.915628493, 0, 0.121948585, 0)
+TextAutoEquip.Font = Enum.Font.SourceSans
+TextAutoEquip.Text = ""
+TextAutoEquip.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextAutoEquip.TextSize = 14.000
+
+UICorner_9.CornerRadius = UDim.new(0.100000001, 8)
+UICorner_9.Parent = TextAutoEquip
+
+TextEquip2.Name = "TextEquip2"
+TextEquip2.Parent = TextAutoEquip
+TextEquip2.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextEquip2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextEquip2.BorderSizePixel = 0
+TextEquip2.Position = UDim2.new(0.00200000009, 0, 0.00999999978, 0)
+TextEquip2.Size = UDim2.new(0.995325267, 0, 0.957723081, 0)
+TextEquip2.Font = Enum.Font.SourceSans
+TextEquip2.Text = ""
+TextEquip2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextEquip2.TextSize = 14.000
+
+UICorner_10.CornerRadius = UDim.new(0.100000001, 8)
+UICorner_10.Parent = TextEquip2
+
+TextEquipName.Name = "TextEquipName"
+TextEquipName.Parent = TextEquip2
+TextEquipName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextEquipName.BackgroundTransparency = 1.000
+TextEquipName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextEquipName.BorderSizePixel = 0
+TextEquipName.Position = UDim2.new(0.0471692123, 0, 0.0251672994, 0)
+TextEquipName.Size = UDim2.new(0.173419625, 0, 0.906015754, 0)
+TextEquipName.Font = Enum.Font.SourceSans
+TextEquipName.Text = "Auto Equip"
+TextEquipName.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextEquipName.TextScaled = true
+TextEquipName.TextSize = 14.000
+TextEquipName.TextWrapped = true
+
+Framoffon_2.Name = "Framoffon"
+Framoffon_2.Parent = TextAutoEquip
+Framoffon_2.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+Framoffon_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Framoffon_2.BorderSizePixel = 0
+Framoffon_2.Position = UDim2.new(0.869000018, 0, 0.194309503, 0)
+Framoffon_2.Size = UDim2.new(0.100135162, 0, 0.612843096, 0)
+Framoffon_2.Font = Enum.Font.SourceSans
+Framoffon_2.Text = ""
+Framoffon_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Framoffon_2.TextSize = 14.000
+
+UICorner_11.CornerRadius = UDim.new(1, 8)
+UICorner_11.Parent = Framoffon_2
+
+TextLabel_2.Parent = Framoffon_2
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0199999996, 0, 0.0299999993, 0)
+TextLabel_2.Size = UDim2.new(0.963896811, 0, 0.930897653, 0)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = ""
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 14.000
+
+UICorner_12.CornerRadius = UDim.new(1, 8)
+UICorner_12.Parent = TextLabel_2
+
+ButtonFram_2.Name = "ButtonFram"
+ButtonFram_2.Parent = TextLabel_2
+ButtonFram_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonFram_2.BackgroundTransparency = 1.000
+ButtonFram_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFram_2.BorderSizePixel = 0
+ButtonFram_2.Size = UDim2.new(1, 0, 1, 0)
+ButtonFram_2.Font = Enum.Font.SourceSans
+ButtonFram_2.Text = ""
+ButtonFram_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFram_2.TextSize = 14.000
+
+Framoff_2.Name = "Framoff"
+Framoff_2.Parent = TextLabel_2
+Framoff_2.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+Framoff_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Framoff_2.BorderSizePixel = 0
+Framoff_2.Position = UDim2.new(0.0500000007, 0, 0.0489999987, 0)
+Framoff_2.Size = UDim2.new(0.449999988, 0, 0.899999976, 0)
+Framoff_2.Font = Enum.Font.SourceSans
+Framoff_2.Text = ""
+Framoff_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Framoff_2.TextSize = 14.000
+
+UICorner_13.CornerRadius = UDim.new(1, 0)
+UICorner_13.Parent = Framoff_2
+
+Framon_2.Name = "Framon"
+Framon_2.Parent = TextLabel_2
+Framon_2.BackgroundColor3 = Color3.fromRGB(15, 33, 150)
+Framon_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Framon_2.BorderSizePixel = 0
+Framon_2.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+Framon_2.Size = UDim2.new(0.449999988, 0, 0.899999976, 0)
+Framon_2.Visible = false
+Framon_2.Font = Enum.Font.SourceSans
+Framon_2.Text = ""
+Framon_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Framon_2.TextSize = 14.000
+
+UICorner_14.CornerRadius = UDim.new(1, 0)
+UICorner_14.Parent = Framon_2
+
+TextLabel_3.Parent = FrameBot
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.0392057337, 0, 0, 0)
+TextLabel_3.Size = UDim2.new(0.35285148, 0, 0.0608953871, 0)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Bot Hub - Script Test"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+ster.Name = "ster"
+ster.Parent = FrameBot
+ster.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+ster.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ster.BorderSizePixel = 0
+ster.Position = UDim2.new(0, 0, 0.0700000003, 0)
+ster.Size = UDim2.new(1, 0, 0.00375095592, 0)
+ster.Font = Enum.Font.SourceSans
+ster.Text = ""
+ster.TextColor3 = Color3.fromRGB(0, 0, 0)
+ster.TextSize = 14.000
+
+setting.Name = "setting"
+setting.Parent = FrameBot
+setting.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+setting.BorderColor3 = Color3.fromRGB(0, 0, 0)
+setting.BorderSizePixel = 0
+setting.Position = UDim2.new(0.165353879, 0, 0.100217953, 0)
+setting.Size = UDim2.new(0.0983346254, 0, 0.0625727624, 0)
+setting.Font = Enum.Font.SourceSans
+setting.Text = ""
+setting.TextColor3 = Color3.fromRGB(255, 255, 255)
+setting.TextScaled = true
+setting.TextSize = 14.000
+setting.TextWrapped = true
+
+MainButtion_2.Name = "MainButtion"
+MainButtion_2.Parent = setting
+MainButtion_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+MainButtion_2.BackgroundTransparency = 1.000
+MainButtion_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainButtion_2.BorderSizePixel = 0
+MainButtion_2.Position = UDim2.new(0.0392057188, 0, 0.097432673, 0)
+MainButtion_2.Size = UDim2.new(1, 0, 1, 0)
+MainButtion_2.Font = Enum.Font.SourceSans
+MainButtion_2.Text = ""
+MainButtion_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+MainButtion_2.TextSize = 14.000
+
+UICorner_15.CornerRadius = UDim.new(0.5, 8)
+UICorner_15.Parent = setting
+
+ButtionName_Main_2.Name = "ButtionName_Main"
+ButtionName_Main_2.Parent = setting
+ButtionName_Main_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtionName_Main_2.BackgroundTransparency = 1.000
+ButtionName_Main_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtionName_Main_2.BorderSizePixel = 0
+ButtionName_Main_2.Position = UDim2.new(0.139999986, 0, 0.0799999982, 0)
+ButtionName_Main_2.Size = UDim2.new(0.699999928, 0, 0.819999993, 0)
+ButtionName_Main_2.Font = Enum.Font.SourceSans
+ButtionName_Main_2.Text = "Main"
+ButtionName_Main_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtionName_Main_2.TextScaled = true
+ButtionName_Main_2.TextSize = 14.000
+ButtionName_Main_2.TextWrapped = true
+
+-- Scripts:
+
+local function LTBH_fake_script() -- TweenGui_bot.LocalScript 
+	local script = Instance.new('LocalScript', TweenGui_bot)
+
+	local Spp = script.Parent.Parent
+	local UserInputService = game:GetService("UserInputService")
+	
+	function Tween(T)
+		if T == "true" then
+			local TweenService = game:GetService("TweenService")
+			local TweenInformation = TweenInfo.new(1/10000000,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+			local TweenGoal = {Position = UDim2.new(0, UserInputService:GetMouseLocation().X - 10, 0, UserInputService:GetMouseLocation().Y - 70)}
+			local TweenGo = TweenService:Create(Spp.Parent.FrameBot,TweenInformation,TweenGoal)
+			TweenGo:Play()
+		end
+	end
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if _G.Gui then
+			Tween("true")
+		end
+	end)
+	Spp.TweenGui_bot.MouseButton1Down:Connect(function()
+		_G.Gui = true
+	end)
+	Spp.TweenGui_bot.MouseButton1Up:Connect(function()
+		_G.Gui = false
+	end)
+end
+coroutine.wrap(LTBH_fake_script)()
+local function AXRYS_fake_script() -- closeGui.LocalScript 
+	local script = Instance.new('LocalScript', closeGui)
+
+	script.Parent.Parent.closeGui.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.FrameBot.Visible = false
+	end)
+end
+coroutine.wrap(AXRYS_fake_script)()
+local function AMUAGI_fake_script() -- MainButtion.LocalScript 
+	local script = Instance.new('LocalScript', MainButtion)
+
+	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Main.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157) --100
+		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) -- 74
+	end)
+end
+coroutine.wrap(AMUAGI_fake_script)()
+local function POJG_fake_script() -- ButtonFram.LocalScript 
+	local script = Instance.new('LocalScript', ButtonFram)
+
+	script.Parent.Parent.ButtonFram.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.Framon.Visible == true then
+			script.Parent.Parent.Framon.Visible = false
+			script.Parent.Parent.Framoff.Visible = true
+			script.Parent.Parent.Parent.Parent.Framoffon.BackgroundColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+		else
+			script.Parent.Parent.Framon.Visible = true
+			script.Parent.Parent.Framoff.Visible = false
+			script.Parent.Parent.Parent.Parent.Framoffon.BackgroundColor3 = Color3.new(0.0588235, 0.129412, 0.588235)
+		end
+	end)
+end
+coroutine.wrap(POJG_fake_script)()
+local function NSXRY_fake_script() -- ButtonFram_2.LocalScript 
+	local script = Instance.new('LocalScript', ButtonFram_2)
+
+	spawn(function()
+		while wait() do
+			if _G.AuToEquip == true then
+				pcall(function()
+					for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+						if v.ToolTip == "Melee" then
+							game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v.Name))
+						end
+					end
+				end)
+			end
+		end
+	end)
+	script.Parent.Parent.ButtonFram.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.Framon.Visible == true then
+			script.Parent.Parent.Framon.Visible = false
+			script.Parent.Parent.Framoff.Visible = true
+			script.Parent.Parent.Parent.Parent.Framoffon.BackgroundColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+			print("t")
+			_G.AuToEquip = false
+		else
+			script.Parent.Parent.Framon.Visible = true
+			script.Parent.Parent.Framoff.Visible = false
+			script.Parent.Parent.Parent.Parent.Framoffon.BackgroundColor3 = Color3.new(0.0588235, 0.129412, 0.588235)
+			_G.AuToEquip = true
+		end
+	end)
+end
+coroutine.wrap(NSXRY_fake_script)()
+local function YMWGGK_fake_script() -- MainButtion_2.LocalScript 
+	local script = Instance.new('LocalScript', MainButtion_2)
+
+	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Main.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) --74
+		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157) -- 100
+	end)
+end
+coroutine.wrap(YMWGGK_fake_script)()
