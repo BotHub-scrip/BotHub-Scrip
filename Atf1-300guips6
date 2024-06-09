@@ -1,4 +1,4 @@
--- Gui to Lua New
+-- Gui to Lua new2
 -- Version: 3.2
 
 -- Instances:
@@ -486,7 +486,7 @@ ButtionName_Main_2.TextWrapped = true
 
 -- Scripts:
 
-local function LTBH_fake_script() -- TweenGui_bot.LocalScript 
+local function JSYXV_fake_script() -- TweenGui_bot.LocalScript 
 	local script = Instance.new('LocalScript', TweenGui_bot)
 
 	local Spp = script.Parent.Parent
@@ -513,17 +513,21 @@ local function LTBH_fake_script() -- TweenGui_bot.LocalScript
 	Spp.TweenGui_bot.MouseButton1Up:Connect(function()
 		_G.Gui = false
 	end)
+	Spp.TweenGui_bot.MouseLeave:Connect(function()
+		wait(2)
+		_G.Gui = false
+	end)
 end
-coroutine.wrap(LTBH_fake_script)()
-local function AXRYS_fake_script() -- closeGui.LocalScript 
+coroutine.wrap(JSYXV_fake_script)()
+local function UDNUD_fake_script() -- closeGui.LocalScript 
 	local script = Instance.new('LocalScript', closeGui)
 
 	script.Parent.Parent.closeGui.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.FrameBot.Visible = false
 	end)
 end
-coroutine.wrap(AXRYS_fake_script)()
-local function AMUAGI_fake_script() -- MainButtion.LocalScript 
+coroutine.wrap(UDNUD_fake_script)()
+local function OQTWEUE_fake_script() -- MainButtion.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -531,8 +535,8 @@ local function AMUAGI_fake_script() -- MainButtion.LocalScript
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) -- 74
 	end)
 end
-coroutine.wrap(AMUAGI_fake_script)()
-local function POJG_fake_script() -- ButtonFram.LocalScript 
+coroutine.wrap(OQTWEUE_fake_script)()
+local function OSWCBCI_fake_script() -- ButtonFram.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram)
 
 	script.Parent.Parent.ButtonFram.MouseButton1Click:Connect(function()
@@ -547,8 +551,8 @@ local function POJG_fake_script() -- ButtonFram.LocalScript
 		end
 	end)
 end
-coroutine.wrap(POJG_fake_script)()
-local function NSXRY_fake_script() -- ButtonFram_2.LocalScript 
+coroutine.wrap(OSWCBCI_fake_script)()
+local function VCGMYUS_fake_script() -- ButtonFram_2.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram_2)
 
 	spawn(function()
@@ -579,8 +583,8 @@ local function NSXRY_fake_script() -- ButtonFram_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(NSXRY_fake_script)()
-local function YMWGGK_fake_script() -- MainButtion_2.LocalScript 
+coroutine.wrap(VCGMYUS_fake_script)()
+local function VIQGO_fake_script() -- MainButtion_2.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion_2)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -588,4 +592,4 @@ local function YMWGGK_fake_script() -- MainButtion_2.LocalScript
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157) -- 100
 	end)
 end
-coroutine.wrap(YMWGGK_fake_script)()
+coroutine.wrap(VIQGO_fake_script)()
