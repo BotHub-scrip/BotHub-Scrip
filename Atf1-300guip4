@@ -49,7 +49,6 @@ local setting = Instance.new("TextLabel")
 local MainButtion_2 = Instance.new("TextButton")
 local UICorner_15 = Instance.new("UICorner")
 local ButtionName_Main_2 = Instance.new("TextLabel")
-local damageAura = Instance.new("TextButton")
 
 --Properties:
 
@@ -477,32 +476,18 @@ ButtionName_Main_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ButtionName_Main_2.BackgroundTransparency = 1.000
 ButtionName_Main_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ButtionName_Main_2.BorderSizePixel = 0
-ButtionName_Main_2.Position = UDim2.new(0.139999986, 0, 0.0799999982, 0)
-ButtionName_Main_2.Size = UDim2.new(0.699999928, 0, 0.819999993, 0)
+ButtionName_Main_2.Position = UDim2.new(0.0797958001, 0, 0.0395875014, 0)
+ButtionName_Main_2.Size = UDim2.new(0.840408981, 0, 0.819999993, 0)
 ButtionName_Main_2.Font = Enum.Font.SourceSans
-ButtionName_Main_2.Text = "Main"
+ButtionName_Main_2.Text = "Sitting"
 ButtionName_Main_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 ButtionName_Main_2.TextScaled = true
 ButtionName_Main_2.TextSize = 14.000
 ButtionName_Main_2.TextWrapped = true
 
-damageAura.Name = "damageAura"
-damageAura.Parent = ScreenGuiBotHub
-damageAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-damageAura.BackgroundTransparency = 1.000
-damageAura.BorderColor3 = Color3.fromRGB(0, 0, 0)
-damageAura.BorderSizePixel = 0
-damageAura.Position = UDim2.new(0.0608564988, 0, 0, 0)
-damageAura.Size = UDim2.new(0.877160013, 0, 0.868243217, 0)
-damageAura.ZIndex = -1
-damageAura.Font = Enum.Font.SourceSans
-damageAura.Text = ""
-damageAura.TextColor3 = Color3.fromRGB(0, 0, 0)
-damageAura.TextSize = 14.000
-
 -- Scripts:
 
-local function IWKCR_fake_script() -- TweenGui_bot.LocalScript 
+local function EAYM_fake_script() -- TweenGui_bot.LocalScript 
 	local script = Instance.new('LocalScript', TweenGui_bot)
 
 	local Spp = script.Parent.Parent
@@ -535,16 +520,16 @@ local function IWKCR_fake_script() -- TweenGui_bot.LocalScript
 		_G.Gui = false
 	end)
 end
-coroutine.wrap(IWKCR_fake_script)()
-local function SHVUKYE_fake_script() -- closeGui.LocalScript 
+coroutine.wrap(EAYM_fake_script)()
+local function SRHKR_fake_script() -- closeGui.LocalScript 
 	local script = Instance.new('LocalScript', closeGui)
 
 	script.Parent.Parent.closeGui.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.FrameBot.Visible = false
 	end)
 end
-coroutine.wrap(SHVUKYE_fake_script)()
-local function HMKCSZ_fake_script() -- MainButtion.LocalScript 
+coroutine.wrap(SRHKR_fake_script)()
+local function WJAQCEZ_fake_script() -- MainButtion.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -552,8 +537,8 @@ local function HMKCSZ_fake_script() -- MainButtion.LocalScript
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) -- 74
 	end)
 end
-coroutine.wrap(HMKCSZ_fake_script)()
-local function WLAOLV_fake_script() -- ButtonFram.LocalScript 
+coroutine.wrap(WJAQCEZ_fake_script)()
+local function FNAGD_fake_script() -- ButtonFram.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram)
 
 	script.Parent.Parent.ButtonFram.MouseButton1Click:Connect(function()
@@ -647,9 +632,6 @@ local function WLAOLV_fake_script() -- ButtonFram.LocalScript
 								if v.Name == Mon and y.Name == Mon then
 									v.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
 									y.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
-									v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-									v.HumanoidRootPart.Anchored = true
-									y.HumanoidRootPart.Anchored = true
 									v.HumanoidRootPart.CanCollide = false
 									y.HumanoidRootPart.CanCollide = false
 									Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
@@ -721,8 +703,8 @@ local function WLAOLV_fake_script() -- ButtonFram.LocalScript
 	end)
 	
 end
-coroutine.wrap(WLAOLV_fake_script)()
-local function VNDTC_fake_script() -- ButtonFram_2.LocalScript 
+coroutine.wrap(FNAGD_fake_script)()
+local function WUXCTFW_fake_script() -- ButtonFram_2.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram_2)
 
 	spawn(function()
@@ -753,64 +735,14 @@ local function VNDTC_fake_script() -- ButtonFram_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(VNDTC_fake_script)()
-local function WBOLO_fake_script() -- MainButtion_2.LocalScript 
+coroutine.wrap(WUXCTFW_fake_script)()
+local function WUDWQBY_fake_script() -- MainButtion_2.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion_2)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.Main.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) --74
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157) -- 100
+		script.Parent.Parent.Parent.Main.MainFrame1.Visible = false
 	end)
 end
-coroutine.wrap(WBOLO_fake_script)()
-local function RDVALXF_fake_script() -- damageAura.LocalScript 
-	local script = Instance.new('LocalScript', damageAura)
-
-	spawn(function()
-		local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
-		game:GetService("RunService").RenderStepped:Connect(function()
-			for i,v in pairs(getreg()) do
-				if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
-					for i,v in pairs(debug.getupvalues(v)) do
-						spawn(function()
-							pcall(function()
-								v.activeController.hitboxMagnitude = 150
-								v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
-								v.activeController.attacking = false
-								v.activeController.increment = 4
-								v.activeController.blocking = false
-								v.activeController.humanoid.AutoRotate = true
-								v.activeController.focusStart = 0
-								v.activeController.currentAttackTrack = 0
-								sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-							end)
-						end)
-					end
-				end
-			end
-		end)
-	end)
-	script.Parent.Parent.damageAura.MouseButton1Click:Connect(function()
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-		game:GetService'VirtualUser':CaptureController()
-		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-	end)
-end
-coroutine.wrap(RDVALXF_fake_script)()
+coroutine.wrap(WUDWQBY_fake_script)()
