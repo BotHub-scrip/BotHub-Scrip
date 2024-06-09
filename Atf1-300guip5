@@ -487,25 +487,23 @@ ButtionName_Main_2.TextWrapped = true
 
 -- Scripts:
 
-local function EAYM_fake_script() -- TweenGui_bot.LocalScript 
+local function DVVBK_fake_script() -- TweenGui_bot.LocalScript 
 	local script = Instance.new('LocalScript', TweenGui_bot)
 
 	local Spp = script.Parent.Parent
 	local UserInputService = game:GetService("UserInputService")
 	
-	function Tween(T)
-		if T == "true" then
+	function Tween()
 			local TweenService = game:GetService("TweenService")
-			local TweenInformation = TweenInfo.new(1/10000000,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+			local TweenInformation = TweenInfo.new(1/1000000,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
 			local TweenGoal = {Position = UDim2.new(0, UserInputService:GetMouseLocation().X, 0, UserInputService:GetMouseLocation().Y)}
-			local TweenGo = TweenService:Create(Spp.Parent.FrameBot,TweenInformation,TweenGoal)
+			local TweenGo = TweenService:Create(script.script.script.Parent.FrameBot,TweenInformation,{Position = UDim2.new(0, UserInputService:GetMouseLocation().X, 0, UserInputService:GetMouseLocation().Y)})
 			TweenGo:Play()
-		end
 	end
 	spawn(function()
 		game:GetService("RunService").RenderStepped:Connect(function()
 			if _G.Gui then
-				Tween("true")
+				Tween()
 			end
 		end)
 	end)
@@ -520,16 +518,16 @@ local function EAYM_fake_script() -- TweenGui_bot.LocalScript
 		_G.Gui = false
 	end)
 end
-coroutine.wrap(EAYM_fake_script)()
-local function SRHKR_fake_script() -- closeGui.LocalScript 
+coroutine.wrap(DVVBK_fake_script)()
+local function CVJUOU_fake_script() -- closeGui.LocalScript 
 	local script = Instance.new('LocalScript', closeGui)
 
 	script.Parent.Parent.closeGui.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.FrameBot.Visible = false
 	end)
 end
-coroutine.wrap(SRHKR_fake_script)()
-local function WJAQCEZ_fake_script() -- MainButtion.LocalScript 
+coroutine.wrap(CVJUOU_fake_script)()
+local function DUAK_fake_script() -- MainButtion.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -537,8 +535,8 @@ local function WJAQCEZ_fake_script() -- MainButtion.LocalScript
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) -- 74
 	end)
 end
-coroutine.wrap(WJAQCEZ_fake_script)()
-local function FNAGD_fake_script() -- ButtonFram.LocalScript 
+coroutine.wrap(DUAK_fake_script)()
+local function YLYE_fake_script() -- ButtonFram.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram)
 
 	script.Parent.Parent.ButtonFram.MouseButton1Click:Connect(function()
@@ -554,6 +552,7 @@ local function FNAGD_fake_script() -- ButtonFram.LocalScript
 			_G.AutoFram = true
 		end
 	end)
+	_G.AutoFram = true
 	function Tween(C)
 		local Pos = (C.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 		local tween_Service = game:GetService("TweenService")
@@ -630,14 +629,19 @@ local function FNAGD_fake_script() -- ButtonFram.LocalScript
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 								if v.Name == Mon and y.Name == Mon then
-									v.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
-									y.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
-									v.HumanoidRootPart.CanCollide = false
-									y.HumanoidRootPart.CanCollide = false
 									Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
-									if sethiddenproperty then
-										sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-									end
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+	                                --[[v.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
+	                                y.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
+	                                v.HumanoidRootPart.Anchored = true
+	                                y.HumanoidRootPart.Anchored = true
+	                                v.HumanoidRootPart.CanCollide = false
+	                                y.HumanoidRootPart.CanCollide = false
+	                                
+	                                if sethiddenproperty then
+	                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+	                               end]]
 								else
 									Tween(CFramePuk)
 								end
@@ -703,8 +707,8 @@ local function FNAGD_fake_script() -- ButtonFram.LocalScript
 	end)
 	
 end
-coroutine.wrap(FNAGD_fake_script)()
-local function WUXCTFW_fake_script() -- ButtonFram_2.LocalScript 
+coroutine.wrap(YLYE_fake_script)()
+local function FPTDYOH_fake_script() -- ButtonFram_2.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram_2)
 
 	spawn(function()
@@ -735,8 +739,8 @@ local function WUXCTFW_fake_script() -- ButtonFram_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(WUXCTFW_fake_script)()
-local function WUDWQBY_fake_script() -- MainButtion_2.LocalScript 
+coroutine.wrap(FPTDYOH_fake_script)()
+local function VGQVK_fake_script() -- MainButtion_2.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion_2)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -745,4 +749,4 @@ local function WUDWQBY_fake_script() -- MainButtion_2.LocalScript
 		script.Parent.Parent.Parent.Main.MainFrame1.Visible = false
 	end)
 end
-coroutine.wrap(WUDWQBY_fake_script)()
+coroutine.wrap(VGQVK_fake_script)()
