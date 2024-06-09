@@ -1,4 +1,4 @@
--- Gui to Lua new2
+-- Gui to Lua
 -- Version: 3.2
 
 -- Instances:
@@ -486,7 +486,7 @@ ButtionName_Main_2.TextWrapped = true
 
 -- Scripts:
 
-local function JSYXV_fake_script() -- TweenGui_bot.LocalScript 
+local function NHNZLVA_fake_script() -- TweenGui_bot.LocalScript 
 	local script = Instance.new('LocalScript', TweenGui_bot)
 
 	local Spp = script.Parent.Parent
@@ -496,7 +496,7 @@ local function JSYXV_fake_script() -- TweenGui_bot.LocalScript
 		if T == "true" then
 			local TweenService = game:GetService("TweenService")
 			local TweenInformation = TweenInfo.new(1/10000000,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
-			local TweenGoal = {Position = UDim2.new(0, UserInputService:GetMouseLocation().X - 10, 0, UserInputService:GetMouseLocation().Y - 70)}
+			local TweenGoal = {Position = UDim2.new(0, UserInputService:GetMouseLocation().X, 0, UserInputService:GetMouseLocation().Y)}
 			local TweenGo = TweenService:Create(Spp.Parent.FrameBot,TweenInformation,TweenGoal)
 			TweenGo:Play()
 		end
@@ -514,20 +514,20 @@ local function JSYXV_fake_script() -- TweenGui_bot.LocalScript
 		_G.Gui = false
 	end)
 	Spp.TweenGui_bot.MouseLeave:Connect(function()
-		wait(2)
+		wait(1)
 		_G.Gui = false
 	end)
 end
-coroutine.wrap(JSYXV_fake_script)()
-local function UDNUD_fake_script() -- closeGui.LocalScript 
+coroutine.wrap(NHNZLVA_fake_script)()
+local function OZMXR_fake_script() -- closeGui.LocalScript 
 	local script = Instance.new('LocalScript', closeGui)
 
 	script.Parent.Parent.closeGui.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.FrameBot.Visible = false
 	end)
 end
-coroutine.wrap(UDNUD_fake_script)()
-local function OQTWEUE_fake_script() -- MainButtion.LocalScript 
+coroutine.wrap(OZMXR_fake_script)()
+local function JTHX_fake_script() -- MainButtion.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -535,8 +535,8 @@ local function OQTWEUE_fake_script() -- MainButtion.LocalScript
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196) -- 74
 	end)
 end
-coroutine.wrap(OQTWEUE_fake_script)()
-local function OSWCBCI_fake_script() -- ButtonFram.LocalScript 
+coroutine.wrap(JTHX_fake_script)()
+local function CXJEX_fake_script() -- ButtonFram.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram)
 
 	script.Parent.Parent.ButtonFram.MouseButton1Click:Connect(function()
@@ -544,15 +544,168 @@ local function OSWCBCI_fake_script() -- ButtonFram.LocalScript
 			script.Parent.Parent.Framon.Visible = false
 			script.Parent.Parent.Framoff.Visible = true
 			script.Parent.Parent.Parent.Parent.Framoffon.BackgroundColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+			_G.AutoFram = false
 		else
 			script.Parent.Parent.Framon.Visible = true
 			script.Parent.Parent.Framoff.Visible = false
 			script.Parent.Parent.Parent.Parent.Framoffon.BackgroundColor3 = Color3.new(0.0588235, 0.129412, 0.588235)
+			_G.AutoFram = true
 		end
 	end)
+	function Tween(C)
+		local Pos = (C.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+		local tween_Service = game:GetService("TweenService")
+		local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
+		local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
+		Warps:Play()
+		if Pos <= 50 then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = C
+		end
+	end
+	
+	function CheckLevel()
+		local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
+		if Level == 1 or Level <= 9 then
+			Mon = "Bandit"
+			QuestName = "BanditQuest1"
+			QuestNumber = 1
+			CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
+			CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
+			CFrameMon = CFrame.new(1179.975341796875, 16.76883888244629, 1625.621826171875)
+			SpawnPoint = "Default"
+		elseif Level == 10 or Level <= 1400 then
+			Mon = "Monkey"
+			QuestName = "JungleQuest"
+			QuestNumber = 1
+			CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
+			CFramePuk = CFrame.new(-1586.5660400390625, 39.97743606567383, 155.67477416992188)
+			CFrameMon = CFrame.new(-1548.0091552734375, 15.977422714233398, 180.86343383789062)
+			SpawnPoint = "Jungle"
+		end
+	end
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.AutoFram then
+				CheckLevel()
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					Tween(CFrameQuest)
+					if (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+						wait(.5)
+						local args = {
+							[1] = "StartQuest",
+							[2] = QuestName,
+							[3] = QuestNumber
+						}
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					end
+				end
+			end
+		end)
+	end)
+	-- Mon
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			pcall(function()
+				CheckLevel()
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if v.Name == Mon then
+						if v.Humanoid.Health == 0 then
+							v:Destroy()
+						end
+					end
+				end
+			end)
+		end)
+	end)
+	-- AutoFram
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.AutoFram then
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					CheckLevel()
+					pcall(function()
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == Mon and y.Name == Mon then
+									v.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
+									y.HumanoidRootPart.Size = Vector3.new(150,2.5,150)
+									v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+									v.HumanoidRootPart.Anchored = true
+									y.HumanoidRootPart.Anchored = true
+									v.HumanoidRootPart.CanCollide = false
+									y.HumanoidRootPart.CanCollide = false
+									Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
+									if sethiddenproperty then
+										sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+									end
+								else
+									Tween(CFramePuk)
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+	end)
+	-- Attack
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.AutoFram then
+				CheckLevel()
+				pcall(function()
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if v.Name == Mon then
+							if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+								_G.Attack = true
+							else
+								_G.Attack = false
+							end
+						end
+					end
+				end)
+			end
+		end)
+	end)
+	spawn(function()
+		local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			for i,v in pairs(getreg()) do
+				if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
+					for i,v in pairs(debug.getupvalues(v)) do
+						spawn(function()
+							pcall(function()
+								v.activeController.hitboxMagnitude = 150
+								v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
+								v.activeController.attacking = false
+								v.activeController.increment = 4
+								v.activeController.blocking = false
+								v.activeController.humanoid.AutoRotate = true
+								v.activeController.focusStart = 0
+								v.activeController.currentAttackTrack = 0
+								if sethiddenproperty then
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								end
+							end)
+						end)
+					end
+				end
+			end
+		end)
+	end)
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.Attack then
+				game:GetService'VirtualUser':CaptureController()
+				game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+			end
+		end)
+	end)
+	
 end
-coroutine.wrap(OSWCBCI_fake_script)()
-local function VCGMYUS_fake_script() -- ButtonFram_2.LocalScript 
+coroutine.wrap(CXJEX_fake_script)()
+local function LMDKAV_fake_script() -- ButtonFram_2.LocalScript 
 	local script = Instance.new('LocalScript', ButtonFram_2)
 
 	spawn(function()
@@ -583,8 +736,8 @@ local function VCGMYUS_fake_script() -- ButtonFram_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(VCGMYUS_fake_script)()
-local function VIQGO_fake_script() -- MainButtion_2.LocalScript 
+coroutine.wrap(LMDKAV_fake_script)()
+local function VBLPU_fake_script() -- MainButtion_2.LocalScript 
 	local script = Instance.new('LocalScript', MainButtion_2)
 
 	script.Parent.Parent.MainButtion.MouseButton1Click:Connect(function()
@@ -592,4 +745,4 @@ local function VIQGO_fake_script() -- MainButtion_2.LocalScript
 		script.Parent.Parent.Parent.setting.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157) -- 100
 	end)
 end
-coroutine.wrap(VIQGO_fake_script)()
+coroutine.wrap(VBLPU_fake_script)()
