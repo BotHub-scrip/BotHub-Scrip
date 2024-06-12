@@ -1,0 +1,988 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local FrameBot = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local NameScript = Instance.new("TextLabel")
+local XName = Instance.new("TextLabel")
+local User = Instance.new("TextLabel")
+local UserName = Instance.new("TextLabel")
+local H = Instance.new("TextLabel")
+local Hwid = Instance.new("TextLabel")
+local YName = Instance.new("TextLabel")
+local UserInfirmation = Instance.new("TextLabel")
+local Map = Instance.new("TextLabel")
+local MapName = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local Clousui = Instance.new("TextButton")
+local CheckKey = Instance.new("TextButton")
+local NameScript_2 = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Tweenui = Instance.new("TextButton")
+local FrameScript = Instance.new("Frame")
+local NameScript_3 = Instance.new("TextLabel")
+local TextNameScript = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local Xpos = Instance.new("TextLabel")
+local TweenGui = Instance.new("TextButton")
+local closdgui = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local NameScript2 = Instance.new("TextLabel")
+local Main = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local NameScript_4 = Instance.new("TextLabel")
+local TextNameLevel = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local checklevel = Instance.new("TextLabel")
+local UICorner_8 = Instance.new("UICorner")
+local nooff = Instance.new("TextLabel")
+local UICorner_9 = Instance.new("UICorner")
+local no = Instance.new("TextLabel")
+local UICorner_10 = Instance.new("UICorner")
+local off = Instance.new("TextLabel")
+local UICorner_11 = Instance.new("UICorner")
+local ckice = Instance.new("TextButton")
+local NameScriptEquip = Instance.new("TextLabel")
+local TextNameLevel_2 = Instance.new("TextLabel")
+local UICorner_12 = Instance.new("UICorner")
+local checklevel_2 = Instance.new("TextLabel")
+local UICorner_13 = Instance.new("UICorner")
+local nooff_2 = Instance.new("TextLabel")
+local UICorner_14 = Instance.new("UICorner")
+local no_2 = Instance.new("TextLabel")
+local UICorner_15 = Instance.new("UICorner")
+local off_2 = Instance.new("TextLabel")
+local UICorner_16 = Instance.new("UICorner")
+local ckice_2 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+FrameBot.Name = "FrameBot"
+FrameBot.Parent = ScreenGui
+FrameBot.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FrameBot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameBot.BorderSizePixel = 0
+FrameBot.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+UICorner.Parent = FrameBot
+
+NameScript.Name = "NameScript"
+NameScript.Parent = FrameBot
+NameScript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameScript.BackgroundTransparency = 1.000
+NameScript.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScript.BorderSizePixel = 0
+NameScript.Size = UDim2.new(1, 0, 0.200000003, 0)
+NameScript.Visible = false
+NameScript.Font = Enum.Font.SourceSans
+NameScript.Text = "Bot Hub"
+NameScript.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameScript.TextScaled = true
+NameScript.TextSize = 14.000
+NameScript.TextWrapped = true
+
+XName.Name = "XName"
+XName.Parent = FrameBot
+XName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+XName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+XName.BorderSizePixel = 0
+XName.Position = UDim2.new(0, 0, 0.192000002, 0)
+XName.Size = UDim2.new(1, 0, 0.00499999989, 0)
+XName.Visible = false
+XName.Font = Enum.Font.SourceSans
+XName.Text = ""
+XName.TextColor3 = Color3.fromRGB(255, 255, 255)
+XName.TextScaled = true
+XName.TextSize = 14.000
+XName.TextWrapped = true
+
+User.Name = "User"
+User.Parent = FrameBot
+User.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+User.BackgroundTransparency = 1.000
+User.BorderColor3 = Color3.fromRGB(0, 0, 0)
+User.BorderSizePixel = 0
+User.Position = UDim2.new(0.0233139042, 0, 0.423999995, 0)
+User.Size = UDim2.new(0.167360529, 0, 0.100000001, 0)
+User.Visible = false
+User.Font = Enum.Font.SourceSans
+User.Text = "Username :"
+User.TextColor3 = Color3.fromRGB(255, 255, 255)
+User.TextScaled = true
+User.TextSize = 14.000
+User.TextWrapped = true
+
+UserName.Name = "UserName"
+UserName.Parent = FrameBot
+UserName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UserName.BackgroundTransparency = 1.000
+UserName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UserName.BorderSizePixel = 0
+UserName.Position = UDim2.new(0.189841792, 0, 0.423999995, 0)
+UserName.Size = UDim2.new(0.167360529, 0, 0.100000001, 0)
+UserName.Visible = false
+UserName.Font = Enum.Font.SourceSans
+UserName.Text = "Kaitun3434"
+UserName.TextColor3 = Color3.fromRGB(255, 255, 255)
+UserName.TextScaled = true
+UserName.TextSize = 14.000
+UserName.TextWrapped = true
+
+H.Name = "H"
+H.Parent = FrameBot
+H.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+H.BackgroundTransparency = 1.000
+H.BorderColor3 = Color3.fromRGB(0, 0, 0)
+H.BorderSizePixel = 0
+H.Position = UDim2.new(0.0233139042, 0, 0.560000002, 0)
+H.Size = UDim2.new(0.114904247, 0, 0.100000001, 0)
+H.Visible = false
+H.Font = Enum.Font.SourceSans
+H.Text = "UserId :"
+H.TextColor3 = Color3.fromRGB(255, 255, 255)
+H.TextScaled = true
+H.TextSize = 14.000
+H.TextWrapped = true
+
+Hwid.Name = "Hwid"
+Hwid.Parent = FrameBot
+Hwid.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Hwid.BackgroundTransparency = 1.000
+Hwid.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Hwid.BorderSizePixel = 0
+Hwid.Position = UDim2.new(0.13821815, 0, 0.560000002, 0)
+Hwid.Size = UDim2.new(0.167360529, 0, 0.100000001, 0)
+Hwid.Visible = false
+Hwid.Font = Enum.Font.SourceSans
+Hwid.Text = "Kaitun3434"
+Hwid.TextColor3 = Color3.fromRGB(255, 255, 255)
+Hwid.TextScaled = true
+Hwid.TextSize = 14.000
+Hwid.TextWrapped = true
+
+YName.Name = "YName"
+YName.Parent = FrameBot
+YName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+YName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+YName.BorderSizePixel = 0
+YName.Position = UDim2.new(0.499583691, 0, 0.192000002, 0)
+YName.Size = UDim2.new(0.00166944438, 0, 0.808000028, 0)
+YName.Visible = false
+YName.Font = Enum.Font.SourceSans
+YName.Text = ""
+YName.TextColor3 = Color3.fromRGB(255, 255, 255)
+YName.TextScaled = true
+YName.TextSize = 14.000
+YName.TextWrapped = true
+
+UserInfirmation.Name = "UserInfirmation"
+UserInfirmation.Parent = FrameBot
+UserInfirmation.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UserInfirmation.BackgroundTransparency = 1.000
+UserInfirmation.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UserInfirmation.BorderSizePixel = 0
+UserInfirmation.Position = UDim2.new(0.0732722729, 0, 0.287999988, 0)
+UserInfirmation.Size = UDim2.new(0.267277271, 0, 0.100000001, 0)
+UserInfirmation.Visible = false
+UserInfirmation.Font = Enum.Font.SourceSans
+UserInfirmation.Text = "User information"
+UserInfirmation.TextColor3 = Color3.fromRGB(255, 255, 255)
+UserInfirmation.TextScaled = true
+UserInfirmation.TextSize = 14.000
+UserInfirmation.TextWrapped = true
+
+Map.Name = "Map"
+Map.Parent = FrameBot
+Map.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Map.BackgroundTransparency = 1.000
+Map.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Map.BorderSizePixel = 0
+Map.Position = UDim2.new(0.0233139042, 0, 0.699999988, 0)
+Map.Size = UDim2.new(0.0857618675, 0, 0.100000001, 0)
+Map.Visible = false
+Map.Font = Enum.Font.SourceSans
+Map.Text = "Map :"
+Map.TextColor3 = Color3.fromRGB(255, 255, 255)
+Map.TextScaled = true
+Map.TextSize = 14.000
+Map.TextWrapped = true
+
+MapName.Name = "MapName"
+MapName.Parent = FrameBot
+MapName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MapName.BackgroundTransparency = 1.000
+MapName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MapName.BorderSizePixel = 0
+MapName.Position = UDim2.new(0.10824313, 0, 0.699999988, 0)
+MapName.Size = UDim2.new(0.167360529, 0, 0.100000001, 0)
+MapName.Visible = false
+MapName.Font = Enum.Font.SourceSans
+MapName.Text = "Kaitun3434"
+MapName.TextColor3 = Color3.fromRGB(255, 255, 255)
+MapName.TextScaled = true
+MapName.TextSize = 14.000
+MapName.TextWrapped = true
+
+TextBox.Parent = FrameBot
+TextBox.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.546211481, 0, 0.324000001, 0)
+TextBox.Size = UDim2.new(0.400000006, 0, 0.200000003, 0)
+TextBox.Visible = false
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "Key..."
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_2.Parent = TextBox
+
+Clousui.Name = "Clousui"
+Clousui.Parent = FrameBot
+Clousui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Clousui.BackgroundTransparency = 1.000
+Clousui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Clousui.BorderSizePixel = 0
+Clousui.Position = UDim2.new(0.922564507, 0, 0.0199999996, 0)
+Clousui.Size = UDim2.new(0.0666944161, 0, 0.159999996, 0)
+Clousui.Visible = false
+Clousui.Font = Enum.Font.SourceSans
+Clousui.Text = "X"
+Clousui.TextColor3 = Color3.fromRGB(255, 255, 255)
+Clousui.TextScaled = true
+Clousui.TextSize = 14.000
+Clousui.TextWrapped = true
+
+CheckKey.Name = "CheckKey"
+CheckKey.Parent = FrameBot
+CheckKey.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+CheckKey.BackgroundTransparency = 1.000
+CheckKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CheckKey.BorderSizePixel = 0
+CheckKey.Position = UDim2.new(0.679433823, 0, 0.639999986, 0)
+CheckKey.Size = UDim2.new(0.133305579, 0, 0.159999996, 0)
+CheckKey.Visible = false
+CheckKey.Font = Enum.Font.SourceSans
+CheckKey.Text = ""
+CheckKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+CheckKey.TextScaled = true
+CheckKey.TextSize = 14.000
+CheckKey.TextWrapped = true
+
+NameScript_2.Name = "NameScript"
+NameScript_2.Parent = CheckKey
+NameScript_2.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+NameScript_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScript_2.BorderSizePixel = 0
+NameScript_2.Position = UDim2.new(0.0468937531, 0, 0.0400001518, 0)
+NameScript_2.Size = UDim2.new(0.899999976, 0, 0.899999976, 0)
+NameScript_2.Font = Enum.Font.SourceSans
+NameScript_2.Text = "Check Key"
+NameScript_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameScript_2.TextScaled = true
+NameScript_2.TextSize = 14.000
+NameScript_2.TextWrapped = true
+
+UICorner_3.Parent = NameScript_2
+
+Tweenui.Name = "Tweenui"
+Tweenui.Parent = FrameBot
+Tweenui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Tweenui.BackgroundTransparency = 1.000
+Tweenui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Tweenui.BorderSizePixel = 0
+Tweenui.Position = UDim2.new(0.0233137012, 0, 0, 0)
+Tweenui.Size = UDim2.new(0.965945303, 0, 0.192000002, 0)
+Tweenui.Visible = false
+Tweenui.Font = Enum.Font.SourceSans
+Tweenui.Text = ""
+Tweenui.TextColor3 = Color3.fromRGB(255, 255, 255)
+Tweenui.TextScaled = true
+Tweenui.TextSize = 14.000
+Tweenui.TextWrapped = true
+
+FrameScript.Name = "FrameScript"
+FrameScript.Parent = ScreenGui
+FrameScript.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FrameScript.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameScript.BorderSizePixel = 0
+FrameScript.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+NameScript_3.Name = "NameScript"
+NameScript_3.Parent = FrameScript
+NameScript_3.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+NameScript_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScript_3.BorderSizePixel = 0
+NameScript_3.Size = UDim2.new(1, 0, 0.075000003, 0)
+NameScript_3.Font = Enum.Font.SourceSans
+NameScript_3.Text = ""
+NameScript_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+NameScript_3.TextSize = 14.000
+
+TextNameScript.Name = "TextNameScript"
+TextNameScript.Parent = NameScript_3
+TextNameScript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextNameScript.BackgroundTransparency = 1.000
+TextNameScript.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextNameScript.BorderSizePixel = 0
+TextNameScript.Position = UDim2.new(0, 0, 0.144738719, 0)
+TextNameScript.Size = UDim2.new(0.310142428, 0, 0.666666269, 0)
+TextNameScript.Font = Enum.Font.SourceSans
+TextNameScript.Text = "  Bot Hub - Test"
+TextNameScript.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextNameScript.TextScaled = true
+TextNameScript.TextSize = 14.000
+TextNameScript.TextWrapped = true
+TextNameScript.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_4.CornerRadius = UDim.new(0.00999999978, 8)
+UICorner_4.Parent = NameScript_3
+
+Xpos.Name = "Xpos"
+Xpos.Parent = FrameScript
+Xpos.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Xpos.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Xpos.BorderSizePixel = 0
+Xpos.Position = UDim2.new(0, 0, 0.0738167539, 0)
+Xpos.Size = UDim2.new(1, 0, 0.00249999994, 0)
+Xpos.Font = Enum.Font.SourceSans
+Xpos.Text = ""
+Xpos.TextColor3 = Color3.fromRGB(100, 100, 100)
+Xpos.TextSize = 14.000
+
+TweenGui.Name = "TweenGui"
+TweenGui.Parent = FrameScript
+TweenGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TweenGui.BackgroundTransparency = 1.000
+TweenGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TweenGui.BorderSizePixel = 0
+TweenGui.Size = UDim2.new(1, 0, 0.075000003, 0)
+TweenGui.Font = Enum.Font.SourceSans
+TweenGui.Text = ""
+TweenGui.TextColor3 = Color3.fromRGB(0, 0, 0)
+TweenGui.TextSize = 14.000
+
+closdgui.Name = "closdgui"
+closdgui.Parent = FrameScript
+closdgui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+closdgui.BackgroundTransparency = 1.000
+closdgui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+closdgui.BorderSizePixel = 0
+closdgui.Position = UDim2.new(0.924306631, 0, 0.0108554056, 0)
+closdgui.Size = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
+closdgui.Font = Enum.Font.SourceSans
+closdgui.Text = "X"
+closdgui.TextColor3 = Color3.fromRGB(150, 150, 150)
+closdgui.TextScaled = true
+closdgui.TextSize = 14.000
+closdgui.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0.00999999978, 8)
+UICorner_5.Parent = FrameScript
+
+NameScript2.Name = "NameScript2"
+NameScript2.Parent = FrameScript
+NameScript2.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+NameScript2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScript2.BorderSizePixel = 0
+NameScript2.Position = UDim2.new(0, 0, 0.0608553998, 0)
+NameScript2.Size = UDim2.new(1, 0, 0.0141446544, 0)
+NameScript2.ZIndex = -1
+NameScript2.Font = Enum.Font.SourceSans
+NameScript2.Text = ""
+NameScript2.TextColor3 = Color3.fromRGB(0, 0, 0)
+NameScript2.TextSize = 14.000
+
+Main.Name = "Main"
+Main.Parent = FrameScript
+Main.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.0345018581, 0, 0.113360897, 0)
+Main.Size = UDim2.new(0.126000002, 0, 0.0500000007, 0)
+Main.Font = Enum.Font.SourceSans
+Main.Text = "Main"
+Main.TextColor3 = Color3.fromRGB(255, 255, 255)
+Main.TextScaled = true
+Main.TextSize = 14.000
+Main.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(1, 1)
+UICorner_6.Parent = Main
+
+NameScript_4.Name = "NameScript"
+NameScript_4.Parent = Main
+NameScript_4.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+NameScript_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScript_4.BorderSizePixel = 0
+NameScript_4.Position = UDim2.new(0, 0, 1.675439, 0)
+NameScript_4.Size = UDim2.new(7.31100845, 0, 1.95213008, 0)
+NameScript_4.Font = Enum.Font.SourceSans
+NameScript_4.Text = ""
+NameScript_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+NameScript_4.TextSize = 14.000
+
+TextNameLevel.Name = "TextNameLevel"
+TextNameLevel.Parent = NameScript_4
+TextNameLevel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextNameLevel.BackgroundTransparency = 1.000
+TextNameLevel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextNameLevel.BorderSizePixel = 0
+TextNameLevel.Position = UDim2.new(-8.27592572e-08, 0, 0.144738913, 0)
+TextNameLevel.Size = UDim2.new(0.310142428, 0, 0.666666269, 0)
+TextNameLevel.Font = Enum.Font.SourceSans
+TextNameLevel.Text = "  Auto Fram Level"
+TextNameLevel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextNameLevel.TextScaled = true
+TextNameLevel.TextSize = 14.000
+TextNameLevel.TextWrapped = true
+TextNameLevel.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_7.CornerRadius = UDim.new(0.00999999978, 8)
+UICorner_7.Parent = NameScript_4
+
+checklevel.Name = "checklevel"
+checklevel.Parent = NameScript_4
+checklevel.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+checklevel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+checklevel.BorderSizePixel = 0
+checklevel.Position = UDim2.new(0.846098721, 0, 0.20949994, 0)
+checklevel.Size = UDim2.new(0.114888899, 0, 0.552861512, 0)
+checklevel.Font = Enum.Font.SourceSans
+checklevel.Text = ""
+checklevel.TextColor3 = Color3.fromRGB(120, 120, 120)
+checklevel.TextScaled = true
+checklevel.TextSize = 14.000
+checklevel.TextWrapped = true
+checklevel.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_8.CornerRadius = UDim.new(1, 0)
+UICorner_8.Parent = checklevel
+
+nooff.Name = "nooff"
+nooff.Parent = checklevel
+nooff.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+nooff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+nooff.BorderSizePixel = 0
+nooff.Position = UDim2.new(0.0170000009, 0, 0.0480000004, 0)
+nooff.Size = UDim2.new(0.944381237, 0, 0.888708591, 0)
+nooff.Font = Enum.Font.SourceSans
+nooff.Text = ""
+nooff.TextColor3 = Color3.fromRGB(0, 0, 0)
+nooff.TextSize = 14.000
+
+UICorner_9.CornerRadius = UDim.new(1, 0)
+UICorner_9.Parent = nooff
+
+no.Name = "no"
+no.Parent = nooff
+no.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+no.BorderColor3 = Color3.fromRGB(0, 0, 0)
+no.BorderSizePixel = 0
+no.Size = UDim2.new(0.5, 0, 1, 0)
+no.Font = Enum.Font.SourceSans
+no.Text = ""
+no.TextColor3 = Color3.fromRGB(255, 255, 255)
+no.TextSize = 14.000
+
+UICorner_10.CornerRadius = UDim.new(1, 0)
+UICorner_10.Parent = no
+
+off.Name = "off"
+off.Parent = nooff
+off.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+off.BorderColor3 = Color3.fromRGB(0, 0, 0)
+off.BorderSizePixel = 0
+off.Position = UDim2.new(0.499886155, 0, 0, 0)
+off.Size = UDim2.new(0.5, 0, 1, 0)
+off.Visible = false
+off.Font = Enum.Font.SourceSans
+off.Text = ""
+off.TextColor3 = Color3.fromRGB(255, 255, 255)
+off.TextSize = 14.000
+
+UICorner_11.CornerRadius = UDim.new(1, 0)
+UICorner_11.Parent = off
+
+ckice.Name = "ckice"
+ckice.Parent = nooff
+ckice.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ckice.BackgroundTransparency = 1.000
+ckice.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ckice.BorderSizePixel = 0
+ckice.Size = UDim2.new(1, 0, 1, 0)
+ckice.Font = Enum.Font.SourceSans
+ckice.Text = ""
+ckice.TextColor3 = Color3.fromRGB(0, 0, 0)
+ckice.TextSize = 14.000
+
+NameScriptEquip.Name = "NameScriptEquip"
+NameScriptEquip.Parent = Main
+NameScriptEquip.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+NameScriptEquip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScriptEquip.BorderSizePixel = 0
+NameScriptEquip.Position = UDim2.new(-0.0198263973, 0, 4.40401125, 0)
+NameScriptEquip.Size = UDim2.new(7.31100845, 0, 1.95213008, 0)
+NameScriptEquip.Font = Enum.Font.SourceSans
+NameScriptEquip.Text = ""
+NameScriptEquip.TextColor3 = Color3.fromRGB(0, 0, 0)
+NameScriptEquip.TextSize = 14.000
+
+TextNameLevel_2.Name = "TextNameLevel"
+TextNameLevel_2.Parent = NameScriptEquip
+TextNameLevel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextNameLevel_2.BackgroundTransparency = 1.000
+TextNameLevel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextNameLevel_2.BorderSizePixel = 0
+TextNameLevel_2.Position = UDim2.new(-8.27592572e-08, 0, 0.144738913, 0)
+TextNameLevel_2.Size = UDim2.new(0.236922324, 0, 0.666666269, 0)
+TextNameLevel_2.Font = Enum.Font.SourceSans
+TextNameLevel_2.Text = "  Auto Equip"
+TextNameLevel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextNameLevel_2.TextScaled = true
+TextNameLevel_2.TextSize = 14.000
+TextNameLevel_2.TextWrapped = true
+TextNameLevel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_12.CornerRadius = UDim.new(0.00999999978, 8)
+UICorner_12.Parent = NameScriptEquip
+
+checklevel_2.Name = "checklevel"
+checklevel_2.Parent = NameScriptEquip
+checklevel_2.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+checklevel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+checklevel_2.BorderSizePixel = 0
+checklevel_2.Position = UDim2.new(0.846098721, 0, 0.20949994, 0)
+checklevel_2.Size = UDim2.new(0.114888899, 0, 0.552861512, 0)
+checklevel_2.Font = Enum.Font.SourceSans
+checklevel_2.Text = ""
+checklevel_2.TextColor3 = Color3.fromRGB(120, 120, 120)
+checklevel_2.TextScaled = true
+checklevel_2.TextSize = 14.000
+checklevel_2.TextWrapped = true
+checklevel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_13.CornerRadius = UDim.new(1, 0)
+UICorner_13.Parent = checklevel_2
+
+nooff_2.Name = "nooff"
+nooff_2.Parent = checklevel_2
+nooff_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+nooff_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+nooff_2.BorderSizePixel = 0
+nooff_2.Position = UDim2.new(0.0170000009, 0, 0.0480000004, 0)
+nooff_2.Size = UDim2.new(0.944381237, 0, 0.888708591, 0)
+nooff_2.Font = Enum.Font.SourceSans
+nooff_2.Text = ""
+nooff_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+nooff_2.TextSize = 14.000
+
+UICorner_14.CornerRadius = UDim.new(1, 0)
+UICorner_14.Parent = nooff_2
+
+no_2.Name = "no"
+no_2.Parent = nooff_2
+no_2.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+no_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+no_2.BorderSizePixel = 0
+no_2.Size = UDim2.new(0.5, 0, 1, 0)
+no_2.Font = Enum.Font.SourceSans
+no_2.Text = ""
+no_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+no_2.TextSize = 14.000
+
+UICorner_15.CornerRadius = UDim.new(1, 0)
+UICorner_15.Parent = no_2
+
+off_2.Name = "off"
+off_2.Parent = nooff_2
+off_2.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+off_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+off_2.BorderSizePixel = 0
+off_2.Position = UDim2.new(0.499886155, 0, 0, 0)
+off_2.Size = UDim2.new(0.5, 0, 1, 0)
+off_2.Visible = false
+off_2.Font = Enum.Font.SourceSans
+off_2.Text = ""
+off_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+off_2.TextSize = 14.000
+
+UICorner_16.CornerRadius = UDim.new(1, 0)
+UICorner_16.Parent = off_2
+
+ckice_2.Name = "ckice"
+ckice_2.Parent = nooff_2
+ckice_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ckice_2.BackgroundTransparency = 1.000
+ckice_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ckice_2.BorderSizePixel = 0
+ckice_2.Size = UDim2.new(1, 0, 1, 0)
+ckice_2.Font = Enum.Font.SourceSans
+ckice_2.Text = ""
+ckice_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+ckice_2.TextSize = 14.000
+
+-- Scripts:
+
+local function KKKLRES_fake_script() -- Clousui.LocalScript 
+	local script = Instance.new('LocalScript', Clousui)
+
+	script.Parent.Parent.Clousui.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.FrameBot.Visible = false
+	end)
+end
+coroutine.wrap(KKKLRES_fake_script)()
+local function QFJMXP_fake_script() -- CheckKey.LocalScript 
+	local script = Instance.new('LocalScript', CheckKey)
+
+	_G.Key = "1234"
+	local sp = script.Parent.Parent
+	local spp = sp.Parent
+	local f = spp.FrameScript
+	--Tween
+	function Tweens(P,S,C)
+		local TweenService = game:GetService("TweenService")
+		local TweenInfo = TweenInfo.new(1) 
+		local Tween = {Position = P,Size = S}
+		local PlayThis = TweenService:Create(C, TweenInfo, Tween)
+		PlayThis:Play()
+	end
+
+	spp.FrameScript.Position = UDim2.new(0.5, 0,0.5, 0)
+	spp.FrameScript.Size = UDim2.new(0, 0,0, 0)
+
+	script.Parent.Parent.CheckKey.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.TextBox.Text == _G.Key then
+			script.Parent.Parent.TextBox.Text = "Key Verify"
+			wait(0.5)
+			sp.CheckKey.Visible = false
+			sp.Clousui.Visible = false
+			sp.Tweenui.Visible = false
+			sp.TextBox.Visible = false
+			sp.H.Visible = false
+			sp.Hwid.Visible = false
+			sp.Map.Visible = false
+			sp.MapName.Visible = false
+			sp.NameScript.Visible = false
+			sp.User.Visible = false
+			sp.UserInfirmation.Visible = false
+			sp.UserName.Visible = false
+			sp.XName.Visible = false
+			sp.YName.Visible = false
+			Tweens(UDim2.new(0.5,0,0.5,0), UDim2.new(0,0,0,0),script.Parent.Parent.Parent.FrameBot)
+			wait(1.5)
+			f.Main.Visible = false
+			f.TweenGui.Visible = false
+			f.closdgui.Visible = false
+			f.NameScript.Visible = false
+			f.NameScript2.Visible = false
+			f.Xpos.Visible = false
+			Tweens(UDim2.new(0.349, 0,0.16, 0), UDim2.new(0.301, 0,0.679, 0),spp.FrameScript)
+			wait(1.1)
+			f.Main.Visible = true
+			f.TweenGui.Visible = true
+			f.closdgui.Visible = true
+			f.NameScript.Visible = true
+			f.NameScript2.Visible = true
+			f.Xpos.Visible = true
+		else
+			script.Parent.Parent.TextBox.Text = "Key Eror"
+			wait(1)
+			if script.Parent.Parent.TextBox.Text ~= "Key Eror" then
+				script.Parent.Parent.TextBox.Text = "Key..."
+			end
+		end
+	end)
+end
+coroutine.wrap(QFJMXP_fake_script)()
+local function EFSY_fake_script() -- FrameBot.LocalScript 
+	local script = Instance.new('LocalScript', FrameBot)
+
+	local sp = script.Parent
+	--Tween
+	local TweenService = game:GetService("TweenService")
+	local TweenInfo = TweenInfo.new(1) 
+	local Tween = {Position = UDim2.new(0.274, 0,0.289, 0),Size = UDim2.new(0.451, 0,0.422, 0)}
+	local PlayThis = TweenService:Create(script.Parent.Parent.FrameBot, TweenInfo, Tween)
+
+
+
+	spawn(function()
+		pcall(function()
+			sp.UserName.Text = game:GetService("Players").LocalPlayer.Name
+			sp.Hwid.Text = game:GetService("Players").LocalPlayer.UserId
+			sp.MapName.Text = "D"
+			sp.CheckKey.Visible = false
+			sp.Clousui.Visible = false
+			sp.Tweenui.Visible = false
+			sp.TextBox.Visible = false
+			sp.H.Visible = false
+			sp.Hwid.Visible = false
+			sp.Map.Visible = false
+			sp.MapName.Visible = false
+			sp.NameScript.Visible = false
+			sp.User.Visible = false
+			sp.UserInfirmation.Visible = false
+			sp.UserName.Visible = false
+			sp.XName.Visible = false
+			sp.YName.Visible = false
+			PlayThis:Play()
+			wait(1.1)
+			sp.CheckKey.Visible = true
+			sp.Clousui.Visible = true
+			sp.Tweenui.Visible = true
+			sp.TextBox.Visible = true
+			sp.H.Visible = true
+			sp.Hwid.Visible = true
+			sp.Map.Visible = true
+			sp.MapName.Visible = true
+			sp.NameScript.Visible = true
+			sp.User.Visible = true
+			sp.UserInfirmation.Visible = true
+			sp.UserName.Visible = true
+			sp.XName.Visible = true
+			sp.YName.Visible = true
+		end)
+	end)
+end
+coroutine.wrap(EFSY_fake_script)()
+local function RHGL_fake_script() -- TweenGui.LocalScript 
+	local script = Instance.new('LocalScript', TweenGui)
+
+	local UserInputService = game:GetService("UserInputService")
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.A then
+				script.Parent.Parent.Parent.FrameScript.Position = UDim2.new(0, UserInputService:GetMouseLocation().X - 10, 0, UserInputService:GetMouseLocation().Y - 70)
+			end
+		end)
+	end)
+	script.Parent.Parent.TweenGui.MouseButton1Down:Connect(function()
+		_G.A = true
+	end)
+	script.Parent.Parent.TweenGui.MouseButton1Up:Connect(function()
+		_G.A = false
+	end)
+	script.Parent.Parent.TweenGui.MouseLeave:Connect(function()
+		wait(1)
+		_G.A = false
+	end)
+end
+coroutine.wrap(RHGL_fake_script)()
+local function GTVF_fake_script() -- closdgui.LocalScript 
+	local script = Instance.new('LocalScript', closdgui)
+
+	script.Parent.Parent.closdgui.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.FrameScript.Visible = false
+	end)
+end
+coroutine.wrap(GTVF_fake_script)()
+local function NRJLL_fake_script() -- ckice.LocalScript 
+	local script = Instance.new('LocalScript', ckice)
+
+	local spp = script.Parent.Parent
+	spp.ckice.MouseButton1Click:Connect(function()
+		if spp.no.Visible == true then
+			spp.no.Visible = false
+			spp.off.Visible = true
+			_G.Auto_Fram = false
+		else
+			spp.no.Visible = true
+			spp.off.Visible = false
+			_G.Auto_Fram = true
+		end
+	end)
+	_G.ByPass_Tween = true
+	function Warp_Tween(P)
+		local Pos = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+		local tween_Service = game:GetService("TweenService")
+		local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
+		local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = P})
+		Warps:Play()
+		if Pos <= 50 then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+		end
+	end
+	function ByPassTween()
+		pcall(function()
+			if _G.ByPass_Tween then
+				CheckLevel()
+				repeat
+					if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= SpawnPoint then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFramePuk
+						game.Players.LocalPlayer.Character.Humanoid.Health = 0
+					end
+				until _G.ByPass_Tween == false or game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == SpawnPoint
+			else
+				Warp_Tween(CFramePuk)
+			end
+		end)
+	end
+	function CheckLevel()
+		local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
+		if Level == 1 or Level <= 9 then
+			Mon = "Bandit"
+			SpawnPoint = "Default"
+			QuestName = "BanditQuest1"
+			QuestNumber = 1
+			CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
+			CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
+			CheckMon = {
+				Mon1 = CFramePuk
+			}
+		elseif Level == 10 or Level <= 14 then
+			Mon = "Monkey"
+			SpawnPoint = "Jungle"
+			QuestName = "JungleQuest"
+			QuestNumber = 1
+			CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
+			CFramePuk = CFrame.new(-1586.5660400390625, 39.97743606567383, 155.67477416992188)
+			CheckMon = {
+				Mon1 = CFramePuk
+			}
+		end
+	end
+	-- Warp ByPass_Tween
+	
+	
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.Auto_Fram then
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					CheckLevel()
+					if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= SpawnPoint then
+						ByPassTween()
+					else
+						Warp_Tween(CFrameQuest)
+					end
+					if (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+						wait(.1)
+						local args = {
+							[1] = "StartQuest",
+							[2] = QuestName,
+							[3] = QuestNumber
+						}
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					end
+				end
+			end
+		end)
+	end)
+	
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.Auto_Fram then
+				pcall(function()
+					CheckLevel()
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if v.Name == Mon then
+							if v.Humanoid.Health then
+								v:Destroy()
+							end
+						end
+					end
+				end)
+			end
+		end)
+	end)
+	
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.Auto_Fram then
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					CheckLevel()
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == Mon and y.Name == Mon then
+								v.HumanoidRootPart.CanCollide = false
+								y.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(150, 20, 150)
+								y.HumanoidRootPart.Size = Vector3.new(150, 20, 150)
+								Warp_Tween(v.HumanoidRootPart.CFrame * CFrame.new(0, 18, 0))
+								v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+								--sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+							elseif game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= SpawnPoint then
+								ByPassTween()
+							elseif game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == SpawnPoint then
+								Warp_Tween(CheckMon.Mon1)
+								if (CheckMon.Mon1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+									--Warp_Tween(CheckMon.Mon2)
+								end
+							end
+						end
+					end
+				end
+			end
+		end)
+	end)
+	
+	-- Attack
+	
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.Auto_Fram then
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					CheckLevel()
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if v.Name == Mon then
+							if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 50 then
+								_G.Attack = true
+							else
+								_G.Attack = false
+							end
+						end
+					end
+				end
+			end
+		end)
+	end)
+	spawn(function()
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if _G.Attack then
+				game:GetService'VirtualUser':CaptureController()
+				game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+			end
+		end)
+	end)
+end
+coroutine.wrap(NRJLL_fake_script)()
+local function KIMYFJ_fake_script() -- ckice_2.LocalScript 
+	local script = Instance.new('LocalScript', ckice_2)
+
+	local spp = script.Parent.Parent
+	spp.ckice.MouseButton1Click:Connect(function()
+		if spp.no.Visible == true then
+			spp.no.Visible = false
+			spp.off.Visible = true
+			_G.Auto_Equip = false
+		else
+			spp.no.Visible = true
+			spp.off.Visible = false
+			_G.Auto_Equip = true
+		end
+	end)
+	spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.Auto_Equip then
+					for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+						if v.ToolTip == "Melee" then
+							game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+						end
+					end
+				end
+			end
+		end)
+	end)
+end
+coroutine.wrap(KIMYFJ_fake_script)()
