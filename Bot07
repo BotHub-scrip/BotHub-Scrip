@@ -14,6 +14,7 @@ local Hum_ser = char_ser.Humanoid
 local HumanoidRoot_ser = char_ser.HumanoidRootPart
 
 local loop = game:GetService("RunService").RenderStepped
+local A
 -- function
 function Tween(P)
     if _G.ByPass == false then
@@ -25,13 +26,15 @@ function Tween(P)
         Warps:Play()
         if Pos <= 20 then
             HumanoidRoot.CFrame = P
-            wait(.5)
             HumanoidRoot_ser.Anchored = false
         end
     else
         HumanoidRoot.CFrame = P
         hum.Health = 0
     end
+end
+function CheckMagnitude(a,b)
+    A = (a.Position - b.Position).Magnitude
 end
 function ChackLevel()
     local lv = Localplayer_ser.Data.Level.Value
@@ -69,7 +72,8 @@ spawn(function()
                 LastSpawnPoint()
                 if Localplayer_ser.PlayerGui.Main.Quest.Visible == false then
                     _G.Attack = false
-                    if (CFrameQuest.Position - HumanoidRoot.Position).Magnitude < 20 then
+                    CheckMagnitude(CFrameQuest,HumanoidRoot)
+                    if A < 20 then
                         local args = {
                             [1] = "StartQuest",
                             [2] = QuestName,
@@ -89,39 +93,33 @@ spawn(function()
     loop:Connect(function()
         if _G.AutoFram then
             pcall(function()
-                if  Localplayer_ser.Data.LastSpawnPoint.Value == SpawnPoint then
-                    if Localplayer_ser.PlayerGui.Main.Quest.Visible == true then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                ChackLevel()
-                                if v.Name == Mon and y.Name == Mon then
-                                    v.HumanoidRootPart.Size = Vector3.new(25,2.5,25)
-                                    v.HumanoidRootPart.Transparency = 0.5
-                                    v.HumanoidRootPart.CanCollide = false
-                                    v.Humanoid.WalkSpeed = 0
-                                    v.Humanoid.JumpPower = 0
-                                    if (v.HumanoidRootPart.Position - y.HumanoidRootPart.Position).Magnitude < 200 then
-                                        v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,15))
-                                    else
-                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,15))
-                                    end
-                                    if sethiddenproperty then
-                                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                    end
-                                elseif v.Name == Mon and y.Name ~= Mon then
+                LastSpawnPoint()
+                if Localplayer_ser.PlayerGui.Main.Quest.Visible == true then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            ChackLevel()
+                            if v.Name == Mon and y.Name == Mon then
+                                v.HumanoidRootPart.Size = Vector3.new(25,2.5,25)
+                                v.HumanoidRootPart.Transparency = 0.5
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Humanoid.WalkSpeed = 0
+                                v.Humanoid.JumpPower = 0
+                                CheckMagnitude(v.HumanoidRootPart - y.HumanoidRootPart)
+                                if A <= 200 then
+                                    v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                                     Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,15))
-                                elseif v.Name ~= Mon and y.Name == Mon then
-                                    Tween(y.HumanoidRootPart.CFrame * CFrame.new(0,0,15))
                                 else
-                                    _G.Attack = false
-                                    Tween(CFramePuk)
+                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,15))
                                 end
+                                if sethiddenproperty then
+                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                                end
+                            else
+                                _G.Attack = false
+                                Tween(CFramePuk)
                             end
                         end
                     end
-                else
-                    LastSpawnPoint()
                 end
             end)
         end
@@ -145,6 +143,9 @@ spawn(function()
     loop:Connect(function()
         if _G.AutoFram then
             pcall(function()
+                if not game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("LeftHand_BusoLayer1") then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+                end
                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     ChackLevel()
                     if v.Name == Mon then
@@ -153,7 +154,8 @@ spawn(function()
                             wait(.2)
                             v:Destroy()
                         else
-                            if (v.HumanoidRootPart.Position - HumanoidRoot.Position).Magnitude < 50 then
+                            CheckMagnitude(v.HumanoidRootPart - HumanoidRoot)
+                            if A < 50 then
                                 _G.Attack = true
                             else
                                 _G.Attack = false
@@ -191,38 +193,6 @@ spawn(function()
     end)
 end)
 -- Attack
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.Attack then
