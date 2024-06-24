@@ -17,7 +17,7 @@ local HumRoot_ser = char_ser.HumanoidRootPart
 local Enemie = game:GetService("Workspace").Enemies
 
 function Tween(C)
-    --HumRoot_ser.Anchored = true
+    HumRoot_ser.Anchored = true
     local Pos = (C.Position - HumRoot.Position).Magnitude
     local tween_Service = game:GetService("TweenService")
     local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
@@ -26,7 +26,7 @@ function Tween(C)
     if Pos <= 50 then
         HumRoot.CFrame = C
         wait(0.1)
-        --HumRoot_ser.Anchored = false
+        HumRoot_ser.Anchored = false
     end
 end
 function CheckLevel()
@@ -87,7 +87,6 @@ end)
 RenderStepped:Connect(function()
     if _G.AutoFram then
         pcall(function()
-            HumRoot_ser.Anchored = true
             for i,v in pairs(Enemie:GetChildren()) do
                 for x,y in pairs(Enemie:GetChildren()) do
                     CheckLevel()
@@ -115,7 +114,7 @@ spawn(function()
                     for i,v in pairs(Enemie:GetChildren()) do
                         CheckLevel()
                         if v.Name == Mon then
-                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
+                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,1,18))
                         else
                             Tween(CFramePuk)
                         end
@@ -152,6 +151,34 @@ spawn(function()
     RenderStepped:Connect(function()
         activeController.timeToNextAttack = 0
         activeController.hitboxMagnitude = 80
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
     end)
 end)
 spawn(function()
