@@ -25,7 +25,6 @@ function Tween(C)
     Warps:Play()
     if Pos <= 50 then
         HumRoot.CFrame = C
-        wait(0.1)
         HumRoot_ser.Anchored = false
     end
 end
@@ -93,9 +92,8 @@ RenderStepped:Connect(function()
                     if v.Name == Mon and y.Name == Mon then
                         v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                         v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                        y.HumanoidRootPart.Size = Vector3.new(60,60,60)
                         v.HumanoidRootPart.CanCollide = false
-                        y.HumanoidRootPart.CanCollide = false
+                        v.HumanoidRootPart.Anchored = true
                         if sethiddenproperty then
                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                         end
@@ -163,7 +161,8 @@ end)
 spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
-            activeController:attack()
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
         end
     end)
 end)
@@ -177,7 +176,8 @@ end)
 spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
-            activeController:attack()
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
         end
     end)
 end)
@@ -185,6 +185,44 @@ spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
             activeController:attack()
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
         end
     end)
 end)
