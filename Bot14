@@ -75,7 +75,7 @@ spawn(function()
         CheckLevel()
             for i,v in pairs(Enemie:GetChildren()) do
                 if v.Name == Mon then
-                    if v.Humanoid.Health == 0 then
+                    if v.Humanoid.Health <= 0 then
                         wait(.1)
                         v:Destroy()
                     end
