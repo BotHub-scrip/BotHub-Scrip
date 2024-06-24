@@ -17,7 +17,7 @@ local HumRoot_ser = char_ser.HumanoidRootPart
 local Enemie = game:GetService("Workspace").Enemies
 
 function Tween(C)
-    HumRoot_ser.Anchored = true
+    --HumRoot_ser.Anchored = true
     local Pos = (C.Position - HumRoot.Position).Magnitude
     local tween_Service = game:GetService("TweenService")
     local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
@@ -26,7 +26,7 @@ function Tween(C)
     if Pos <= 50 then
         HumRoot.CFrame = C
         wait(0.1)
-        HumRoot_ser.Anchored = false
+        --HumRoot_ser.Anchored = false
     end
 end
 function CheckLevel()
