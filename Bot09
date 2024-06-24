@@ -20,7 +20,7 @@ function Tween(C)
     local Pos = (C.Position - HumRoot.Position).Magnitude
     local tween_Service = game:GetService("TweenService")
     local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
-    local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
+    local Warps = tween_Service:Create(char_ser["HumanoidRootPart"], tween_info, {CFrame = C})
     Warps:Play()
     if Pos <= 50 then
         HumRoot.CFrame = C
@@ -104,7 +104,7 @@ while _G.bringmob do wait()
 end
 -- AutoFram
 spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
+    RenderStepped:Connect(function()
         if _G.AutoFram then
             if lp_ser.PlayerGui.Main.Quest.Visible == true then
                 for i,v in pairs(Enemie:GetChildren()) do
@@ -113,14 +113,7 @@ spawn(function()
                         if v.Name == Mon and y.Name == Mon then
                             _G.bringmob = true
                             Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
-                        elseif v.Name ~= Mon and y.Name == Mon then
-                            _G.bringmob = false
-                            Tween(y.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
-                        elseif v.Name == Mon and y.Name ~= Mon then
-                            _G.bringmob = false
-                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
-                        elseif v.Name ~= Mon and y.Name ~= Mon then
-                            _G.bringmob = false
+                        else
                             Tween(CFramePuk)
                         end
                     end
@@ -140,7 +133,7 @@ spawn(function()
                 for i,v in pairs(Enemie:GetChildren()) do
                     if v.Name == Mon then
                         if (v.HumanoidRootPart.Position - HumRoot.Position).Magnitude < 50 then
-                            if v.Humanoid.Health <= 0 then
+                            if v.Humanoid.Health ~= 0 then
                                 _G.Attack = true
                             else
                                 _G.Attack = false
