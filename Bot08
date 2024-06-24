@@ -1,0 +1,169 @@
+_G.AutoFram = true
+
+local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+local activeController = getupvalues(CombatFramework)[2]['activeController']
+local Camera = require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+local RenderStepped = game:GetService("RunService").RenderStepped
+local ply = game.Players
+local lp = ply.LocalPlayer
+local char = lp.Character
+local Hum = char.Humanoid
+local HumRoot = char.HumanoidRootPart
+local play_ser = game:GetService("Players")
+local lp_ser = play_ser.LocalPlayer
+local char_ser = lp_ser.Character
+local Hum_ser = char_ser.Humanoid
+local HumRoot_ser = char_ser.HumanoidRootPart
+local Enemie = game:GetService("Workspace").Enemies
+
+function Tween(C)
+    local Pos = (C.Position - HumRoot.Position).Magnitude
+    local tween_Service = game:GetService("TweenService")
+    local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
+    local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
+    Warps:Play()
+    if Pos <= 50 then
+        HumRoot.CFrame = C
+    end
+end
+function CheckLevel()
+    local Level = lp.Data.Level.Value
+    if Level == 1 or Level <= 9 then
+        Mon = "Bandit"
+        QuestName = "BanditQuest1"
+        QuestNumber = 1
+        CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
+        CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
+        CFrameMon = CFrame.new(1179.975341796875, 16.76883888244629, 1625.621826171875)
+        SpawnPoint = "Default"
+    elseif Level == 10 or Level <= 1400 then
+        Mon = "Monkey"
+		QuestName = "JungleQuest"
+		QuestNumber = 1
+		CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
+		CFramePuk = CFrame.new(-1586.5660400390625, 39.97743606567383, 155.67477416992188)
+        CFrameMon = CFrame.new(-1548.0091552734375, 15.977422714233398, 180.86343383789062)
+        SpawnPoint = "Jungle"
+    end
+end
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.AutoFram then
+            CheckLevel()
+            if lp_ser.PlayerGui.Main.Quest.Visible == false then
+                Tween(CFrameQuest)
+                if (CFrameQuest.Position - HumRoot.Position).Magnitude < 50 then
+                    wait(0.1)
+                    local args = {
+                        [1] = "StartQuest",
+                        [2] = QuestName,
+                        [3] = QuestNumber
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+            end
+        end
+    end)
+end)
+-- Mon
+spawn(function()
+    RenderStepped:Connect(function()
+        pcall(function()
+        CheckLevel()
+            for i,v in pairs(Enemie:GetChildren()) do
+                if v.Name == Mon then
+                    if v.Humanoid.Health == 0 then
+                        wait(.1)
+                        v:Destroy()
+                    end
+                end
+            end
+        end)
+    end)
+end)
+while _G.bringmob do wait()
+    pcall(function()
+        for i,v in pairs(Enemie:GetChildren()) do
+            for x,y in pairs(Enemie:GetChildren()) do
+                CheckLevel()
+                if v.Name == Mon then
+                    if y.Name == Mon then
+                        v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                        y.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                        v.HumanoidRootPart.CanCollide = false
+                        y.HumanoidRootPart.CanCollide = false
+                        if sethiddenproperty then
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end
+-- AutoFram
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.AutoFram then
+            if lp_ser.PlayerGui.Main.Quest.Visible == true then
+                for i,v in pairs(Enemie:GetChildren()) do
+                    for x,y in pairs(Enemie:GetChildren()) do
+                        CheckLevel()
+                        if v.Name == Mon and y.Name == Mon then
+                            _G.bringmob = true
+                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
+                        elseif v.Name ~= Mon and y.Name == Mon then
+                            _G.bringmob = false
+                            Tween(y.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
+                        elseif v.Name == Mon and y.Name ~= Mon then
+                            _G.bringmob = false
+                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,18,0))
+                        elseif v.Name ~= Mon and y.Name ~= Mon then
+                            _G.bringmob = false
+                            Tween(CFramePuk)
+                        end
+                    end
+                end
+            else
+                _G.bringmob = false
+            end
+        end
+    end)
+end)
+-- Attack
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.AutoFram then
+            CheckLevel()
+            pcall(function()
+                for i,v in pairs(Enemie:GetChildren()) do
+                    if v.Name == Mon then
+                        if (v.HumanoidRootPart.Position - HumRoot.Position).Magnitude < 50 then
+                            if v.Humanoid.Health <= 0 then
+                                _G.Attack = true
+                            else
+                                _G.Attack = false
+                            end
+                        else
+                            _G.Attack = false
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        activeController.timeToNextAttack = -1
+        activeController.hitboxMagnitude = 80
+    end)
+end)
+spawn(function()
+    RenderStepped:Connect(function()
+        if _G.Attack then
+            activeController:attack()
+        end
+    end)
+end)
