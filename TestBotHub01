@@ -337,17 +337,21 @@ end)
 spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
-            Camera:Stop()
+            pcall(function()
+                Camera:Stop()
             activeController.timeToNextAttack = 0
             activeController.hitboxMagnitude = 80
             activeController:attack()
+            end)
         end
     end)
 end)
 spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
-            activeController:attack()
+            pcall(function()
+                activeController:attack()
+            end)
         end
     end)
 end)
@@ -367,10 +371,8 @@ spawn(function()
             if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Mon) then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
             end
-            for i, v in pairs(Hum:GetChildren()) do
-                if not tostring(v.Name) == "Buso" then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-                end
+            if not game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("LeftHand_BusoLayer1") then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
             end
         end
     end)
