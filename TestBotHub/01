@@ -1,21 +1,63 @@
-_G.AutoFram = true
-
+-- Fast Attack
 local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 local activeController = getupvalues(CombatFramework)[2]['activeController']
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker):Stop()
-local RenderStepped = game:GetService("RunService").RenderStepped
+-- Player
 local ply = game.Players
 local lp = ply.LocalPlayer
 local char = lp.Character
 local Hum = char.Humanoid
 local HumRoot = char.HumanoidRootPart
+-- Sever
 local play_ser = game:GetService("Players")
 local lp_ser = play_ser.LocalPlayer
 local char_ser = lp_ser.Character
 local Hum_ser = char_ser.Humanoid
 local HumRoot_ser = char_ser.HumanoidRootPart
+-- Mon
 local Enemie = game:GetService("Workspace").Enemies
-
+-- Loop
+local RenderStepped = game:GetService("RunService").RenderStepped
+-- Code
+local Code = {
+    "SECRET_ADMIN",
+    "CODESLIDE",
+    "ADMINHACKED",
+    "TRIPLEABUSE",
+    "SEATROLLING",
+    "ZIOLES",
+    "KITT_RESET",
+    "Sub2CaptainMaui",
+    "SUB2GAMERROBOT_RESET1",
+    "kittgaming",
+    "Sub2Fer999",
+    "Enyu_is_Pro",
+    "Magicbus",
+    "JCWK",
+    "Starcodeheo",
+    "Bluxxy",
+    "fudd10_v2",
+    "FUDD10",
+    "BIGNEWS",
+    "THEGREATACE",
+    "SUB2GAMERROBOT_EXP1",
+    "Sub2OfficialNoobie",
+    "StrawHatMaine",
+    "SUB2NOOBMASTER123",
+    "Sub2UncleKizaru",
+    "Sub2Daigrock",
+    "Axiore",
+    "TantaiGaming"
+}
+-- Auto Code
+x = 1
+RenderStepped:Connect(function()
+    if x <= #Code then
+        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(args[x])
+        x = x + 1
+    end
+end)
+-- Function
 function Tween(C)
     HumRoot_ser.Anchored = true
     local Pos = (C.Position - HumRoot.Position).Magnitude
@@ -23,7 +65,7 @@ function Tween(C)
     local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
     local Warps = tween_Service:Create(char_ser["HumanoidRootPart"], tween_info, {CFrame = C})
     Warps:Play()
-    if Pos <= 50 then
+    if Pos <= 30 then
         HumRoot.CFrame = C
         HumRoot_ser.Anchored = false
     end
@@ -36,18 +78,17 @@ function CheckLevel()
         QuestNumber = 1
         CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
         CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
-        CFrameMon = CFrame.new(1179.975341796875, 16.76883888244629, 1625.621826171875)
         SpawnPoint = "Default"
-    elseif Level == 10 or Level <= 1400 then
+    elseif Level == 10 or Level <= 14 then
         Mon = "Monkey"
 		QuestName = "JungleQuest"
 		QuestNumber = 1
 		CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
 		CFramePuk = CFrame.new(-1586.5660400390625, 39.97743606567383, 155.67477416992188)
-        CFrameMon = CFrame.new(-1548.0091552734375, 15.977422714233398, 180.86343383789062)
         SpawnPoint = "Jungle"
     end
 end
+-- Check Quest
 spawn(function()
     RenderStepped:Connect(function()
         if _G.AutoFram then
@@ -67,7 +108,7 @@ spawn(function()
         end
     end)
 end)
--- Mon
+-- Check Mon
 spawn(function()
     RenderStepped:Connect(function()
         pcall(function()
@@ -93,10 +134,7 @@ RenderStepped:Connect(function()
                         v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                         v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                         v.HumanoidRootPart.CanCollide = false
-                        v.HumanoidRootPart.Anchored = true
-                        if sethiddenproperty then
-                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                        end
+                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                     end
                 end
             end
@@ -122,7 +160,7 @@ spawn(function()
         end
     end)
 end)
--- Attack
+-- Auto Attack
 spawn(function()
     RenderStepped:Connect(function()
         if _G.AutoFram then
@@ -166,63 +204,18 @@ spawn(function()
         end
     end)
 end)
+-- Buso and AbandonQuest
 spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            activeController:attack()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.AutoFram then
+            CheckLevel()
+            if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Mon) then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+            end
+            if not game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("LeftHand_BusoLayer1") then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+            end
         end
     end)
 end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            activeController:attack()
-        end
-    end)
-end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            activeController:attack()
-        end
-    end)
-end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            activeController:attack()
-        end
-    end)
-end)
-spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-        end
-    end)
-end)
+_G.AutoFram = true
