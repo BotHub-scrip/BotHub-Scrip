@@ -244,7 +244,7 @@ spawn(function()
             if lp_ser.PlayerGui.Main.Quest.Visible == false then
                 Tween(CFrameQuest)
                 if (CFrameQuest.Position - HumRoot.Position).Magnitude < 50 then
-                    wait(0.1)
+                    wait(0.3)
                     local args = {
                         [1] = "StartQuest",
                         [2] = QuestName,
@@ -334,22 +334,21 @@ spawn(function()
     end)
 end)
 spawn(function()
-    RenderStepped:Connect(function()
-        if _G.Attack then
-            pcall(function()
-                Camera:Stop()
-                activeController.timeToNextAttack = 0
-                activeController.hitboxMagnitude = 80
-                activeController:attack()
-            end)
-        end
+    pcall(function()
+        getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack = -1
+    end)
+    pcall(function()
+        getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 80
+    end)
+    pcall(function()
+        Camera:Stop()
     end)
 end)
 spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
             pcall(function()
-                activeController:attack()
+                getupvalues(CombatFramework)[2]['activeController']:attack()
             end)
         end
     end)
