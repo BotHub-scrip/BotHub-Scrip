@@ -54,7 +54,7 @@ local Code = {
 x = 1
 RenderStepped:Connect(function()
     if x <= #Code then
-        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(args[x])
+        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Code[x])
         x = x + 1
     end
 end)
@@ -219,10 +219,7 @@ function CheckLevel()
         QuestNumber = 2
         CFrameQuest = CFrame.new(-1580.97534, 8.5393095, -2987.01904, -0.500865996, 5.42050671e-09, -0.865524828, 2.36723388e-08, 1, -7.43613926e-09, 0.865524828, -2.42135076e-08, -0.500865996)
         CFramePuk = CFrame.new(-1455.57581, 7.86997795, -3246.27979, -0.484400183, -3.55323131e-08, 0.874846518, -6.56972503e-08, 1, 4.23908819e-09, -0.874846518, -5.5421598e-08, -0.484400183)
-        CFramePuk2 = CFrame.new(-1430.90137, 7.86997795, -3330.93579, 0.533779979, 3.27129221e-08, 0.845623434, -7.00078857e-08, 1, 5.50586066e-09, -0.845623434, -6.21392289e-08, 0.533779979)
-        CFramePuk3 = CFrame.new(-1151.17346, 7.71650505, -3220.04224, -0.392631441, -8.34044087e-08, -0.919695914, -6.19868601e-08, 1, -6.42238618e-08, 0.919695914, 3.17927586e-08, -0.392631441)
-        CFramePuk4 = CFrame.new(-1202.39246, 7.71650505, -3111.0874, -0.921865344, 3.11717372e-08, 0.387510359, 3.83352194e-08, 1, 1.07562856e-08, -0.387510359, 2.47711416e-08, -0.921865344)
-                                                                end
+        CFramePuk2 = CFrame.new(-1430.90137, 7.86997795, -3330.93579, 0.533779979, 3.27129221e-08, 0.845623434, -7.00078857e-08, 1, 5.50586066e-09, -0.845623434, -6.21392289e-08, 0.533779979)                                                                end
                                                             end
                                                         end
                                                     end
@@ -301,7 +298,7 @@ spawn(function()
                     for i,v in pairs(Enemie:GetChildren()) do
                         CheckLevel()
                         if v.Name == Mon then
-                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,1,18))
+                            Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,18))
                         else
                             Tween(CFramePuk)
                         end
@@ -320,7 +317,7 @@ spawn(function()
                 for i,v in pairs(Enemie:GetChildren()) do
                     if v.Name == Mon then
                         if (v.HumanoidRootPart.Position - HumRoot.Position).Magnitude < 50 then
-                            if v.Humanoid.Health >= 1 then
+                            if v.Humanoid.Health ~= 0 then
                                 _G.Attack = true
                             else
                                 _G.Attack = false
@@ -339,9 +336,9 @@ spawn(function()
         if _G.Attack then
             pcall(function()
                 Camera:Stop()
-            activeController.timeToNextAttack = 0
-            activeController.hitboxMagnitude = 80
-            activeController:attack()
+                activeController.timeToNextAttack = 0
+                activeController.hitboxMagnitude = 80
+                activeController:attack()
             end)
         end
     end)
