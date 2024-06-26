@@ -1,7 +1,5 @@
 _G.AutoFram = true
 -- Fast Attack
-local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-local activeController = getupvalues(CombatFramework)[2]['activeController']
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 -- Player
 local ply = game.Players
@@ -334,21 +332,15 @@ spawn(function()
     end)
 end)
 spawn(function()
-    pcall(function()
-        getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack = -1
-    end)
-    pcall(function()
-        getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 80
-    end)
-    pcall(function()
-        Camera:Stop()
-    end)
+    Camera:Stop()
+    getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].timeToNextAttack = -1
+    getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].hitboxMagnitude = 80
 end)
 spawn(function()
     RenderStepped:Connect(function()
         if _G.Attack then
             pcall(function()
-                getupvalues(CombatFramework)[2]['activeController']:attack()
+                getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController']:attack()
             end)
         end
     end)
