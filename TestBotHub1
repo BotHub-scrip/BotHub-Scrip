@@ -66,11 +66,8 @@ function Tween(C)
     local tween_info = TweenInfo.new(Pos/350, Enum.EasingStyle.Linear)
     local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
     Warps:Play()
-    wait(Pos-5)
-    if Pos <= 30 then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = C
-        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-    end
+    wait(Pos-2)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
 end
 Tween(CFrame.new(-4954.60107, 295.769989, -2901.80957, -0.99389571, 3.12787805e-08, -0.110323451, 3.31190577e-08, 1, -1.48482462e-08, 0.110323451, -1.84114182e-08, -0.99389571))
 --[[function CheckLevel()
@@ -235,7 +232,8 @@ function CheckLevel()
         CFrameQuest = CFrame.new(-1580.97534, 8.5393095, -2987.01904, -0.500865996, 5.42050671e-09, -0.865524828, 2.36723388e-08, 1, -7.43613926e-09, 0.865524828, -2.42135076e-08, -0.500865996)
         CFramePuk = CFrame.new(-1455.57581, 7.86997795, -3246.27979, -0.484400183, -3.55323131e-08, 0.874846518, -6.56972503e-08, 1, 4.23908819e-09, -0.874846518, -5.5421598e-08, -0.484400183)
         CFramePuk2 = CFrame.new(-1430.90137, 7.86997795, -3330.93579, 0.533779979, 3.27129221e-08, 0.845623434, -7.00078857e-08, 1, 5.50586066e-09, -0.845623434, -6.21392289e-08, 0.533779979)
-        SpawnPoint = ""                                                            end
+        SpawnPoint = ""
+                                                                end
                                                             end
                                                         end
                                                     end
@@ -261,7 +259,7 @@ spawn(function()
                 if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= SpawnPoint then
                     repeat
                         game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFramePuk
-                        game.Players.localPlayer.Character.HumanoidRootPart.Health = 0
+                        game.Players.localPlayer.Character.Humanoid.Health = 0
                     until game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == SpawnPoint
                 end
             end
@@ -342,13 +340,11 @@ spawn(function()
 end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if getgenv().AutoFram then
+        if getgenv().AutoFram and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
             ---CheckLevel()
             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if tostring(v.Name) == Mon then
-                    print("111111")
-                else
-                    print("222222")
+                if v.Name ~= Mon then
+                    Tween(CFramePuk)
                 end
             end
         end
