@@ -1,6 +1,6 @@
 --_G.AutoFram = true
 getgenv().AutoFram = true
-
+getgenv().bypass = true
 -- Fast Attack
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 -- Player
@@ -243,7 +243,7 @@ end
 spawn(function()
     RenderStepped:Connect(function()
         if getgenv().AutoFram then
-            if _G.bypass then
+            if getgenv().bypass then
                 CheckLevel()
                 if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= SpawnPoint then
                     repeat
@@ -260,9 +260,9 @@ spawn(function()
     RenderStepped:Connect(function()
         if getgenv().AutoFram then
             CheckLevel()
-            if lp_ser.PlayerGui.Main.Quest.Visible == false then
+            if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                 Tween(CFrameQuest)
-                if (CFrameQuest.Position - HumRoot.Position).Magnitude < 50 then
+                if (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
                     wait(0.3)
                     local args = {
                         [1] = "StartQuest",
@@ -280,7 +280,7 @@ spawn(function()
     RenderStepped:Connect(function()
         pcall(function()
         CheckLevel()
-            for i,v in pairs(Enemie:GetChildren()) do
+            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                 if v.Name == Mon then
                     if v.Humanoid.Health <= 0 then
                         wait(.1)
@@ -294,8 +294,8 @@ end)
 RenderStepped:Connect(function()
     if getgenv().AutoFram then
         pcall(function()
-            for i,v in pairs(Enemie:GetChildren()) do
-                for x,y in pairs(Enemie:GetChildren()) do
+            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     CheckLevel()
                     if v.Name == Mon then
                         if y.Name == Mon then
@@ -315,8 +315,8 @@ spawn(function()
     RenderStepped:Connect(function()
         if getgenv().AutoFram then
             pcall(function()
-                if lp_ser.PlayerGui.Main.Quest.Visible == true then
-                    for i,v in pairs(Enemie:GetChildren()) do
+                if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         CheckLevel()
                         if v.Name == Mon then
                             Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,18))
@@ -335,16 +335,16 @@ spawn(function()
         if getgenv().AutoFram then
             CheckLevel()
             pcall(function()
-                for i,v in pairs(Enemie:GetChildren()) do
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                     if v.Name == Mon then
-                        if (v.HumanoidRootPart.Position - HumRoot.Position).Magnitude < 50 then
+                        if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
                             if v.Humanoid.Health == 0 then
-                                getgenv().Attack = false
+                                _G.Attack = false
                             else
-                                getgenv().Attack = true
+                                _G.Attack = true
                             end
                         else
-                            getgenv().Attack = false
+                            _G.Attack = false
                         end
                     end
                 end
@@ -359,7 +359,7 @@ spawn(function()
 end)
 spawn(function()
     RenderStepped:Connect(function()
-        if getgenv().Attack then
+        if _G.Attack then
             pcall(function()
                 getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController']:attack()
             end)
@@ -368,7 +368,7 @@ spawn(function()
 end)
 spawn(function()
     RenderStepped:Connect(function()
-        if getgenv().Attack then
+        if _G.Attack then
             game:GetService'VirtualUser':CaptureController()
             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
         end
