@@ -1,4 +1,6 @@
-_G.AutoFram = true
+--_G.AutoFram = true
+getgenv().AutoFram = true
+
 -- Fast Attack
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 -- Player
@@ -58,15 +60,15 @@ RenderStepped:Connect(function()
 end)
 -- Function
 function Tween(C)
-    HumRoot_ser.Anchored = true
-    local Pos = (C.Position - HumRoot.Position).Magnitude
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+    local Pos = (C.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     local tween_Service = game:GetService("TweenService")
-    local tween_info = TweenInfo.new(Pos/370, Enum.EasingStyle.Linear)
-    local Warps = tween_Service:Create(char_ser["HumanoidRootPart"], tween_info, {CFrame = C})
+    local tween_info = TweenInfo.new(Pos/350, Enum.EasingStyle.Linear)
+    local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
     Warps:Play()
     if Pos <= 30 then
-        HumRoot.CFrame = C
-        HumRoot_ser.Anchored = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = C
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
     end
 end
 --[[function CheckLevel()
@@ -91,20 +93,20 @@ function CheckLevel()
 	local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
 	if Level == 1 or Level <= 9 then
         Mon = "Bandit"
-        Title = "Bandit"
-        CFramePuk = CFrame.new(1098.90247, 67.0395203, 1616.08984, 0.0688105226, 1.89194598e-08, -0.997629762, -2.03779624e-08, 1, 1.7558861e-08, 0.997629762, 1.9121428e-08, 0.0688105226)
-        CFrameQuest = CFrame.new(1059.96899, 17.0475254, 1549.3396, -0.929264307, 4.23960245e-09, 0.369415551, 1.78822568e-10, 1, -1.10266853e-08, -0.369415551, -1.01806457e-08, -0.929264307)
         QuestName = "BanditQuest1"
         QuestNumber = 1
+        CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
+        CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
+        SpawnPoint = "Default"
     else
     if Level == 10 or Level <= 14 then
         Mon = "Monkey"
-		Title = "Monkey"
 		QuestName = "JungleQuest"
 		QuestNumber = 1
-		CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
-		CFramePuk = CFrame.new(-1776.32959, 61.1782455, 66.8902054, -0.912609756, -2.38546143e-08, 0.408831745, -2.14773621e-08, 1, 1.04056577e-08, -0.408831745, 7.15677129e-10, -0.912609756)
-    else 
+		CFrameQuest = CFrame.new(-1599.5264892578125, 36.977455139160156, 153.2390899658203)
+		CFramePuk = CFrame.new(-1586.5660400390625, 39.97743606567383, 155.67477416992188)
+        SpawnPoint = "Jungle"
+    else
     if Level == 15 or Level <= 29 then
         Mon = "Gorilla"
         Title = "Gorilla"
@@ -112,6 +114,7 @@ function CheckLevel()
         QuestNumber = 2
         CFrameQuest = CFrame.new(-1599.23096, 37.8653831, 153.335953, -0.0493941903, 1.29583286e-08, 0.998779356, 3.21716165e-08, 1, -1.13831318e-08, -0.998779356, 3.15700852e-08, -0.0493941903)
         CFramePuk = CFrame.new(-1133.4574, 40.8067436, -526.086792, 0.647179008, -2.76535794e-10, 0.762338042, 3.26674865e-08, 1, -2.73699801e-08, -0.762338042, 4.26169464e-08, 0.647179008)
+        SpawnPoint = "Jungle"
     else
     if Level == 30 or Level <= 39 then
         Mon = "Pirate"
@@ -120,6 +123,7 @@ function CheckLevel()
         QuestNumber = 1
         CFrameQuest = CFrame.new(-1140.75, 5.27738094, 3830.41626, -0.971490741, 7.58226264e-08, 0.237077385, 6.98668288e-08, 1, -3.3523424e-08, -0.237077385, -1.60038507e-08, -0.971490741)
         CFramePuk = CFrame.new(-1251.65491, 44.8773575, 3817.86255, -0.973911822, -7.29827363e-08, 0.226926699, -5.31656923e-08, 1, 9.34400362e-08, -0.226926699, 7.89376458e-08, -0.973911822)
+        SpawnPoint = "Pirate"
     else
     if Level == 40 or Level <= 59 then
         Mon = "Brute"
@@ -128,6 +132,7 @@ function CheckLevel()
         QuestNumber = 2
         CFrameQuest = CFrame.new(-1140.75, 5.27738094, 3830.41626, -0.971490741, 7.58226264e-08, 0.237077385, 6.98668288e-08, 1, -3.3523424e-08, -0.237077385, -1.60038507e-08, -0.971490741)
         CFramePuk = CFrame.new(-1150.32996, 14.9352036, 4297.00439, 0.987384498, 1.01365842e-07, -0.158340812, -9.35679765e-08, 1, 5.67021949e-08, 0.158340812, -4.11712406e-08, 0.987384498)
+        SpawnPoint = "Pirate"
     else
     if Level == 60 or Level <= 74 then
         Mon = "Desert Bandit"
@@ -234,10 +239,26 @@ function CheckLevel()
         end
     end
 end
+-- 
+spawn(function()
+    RenderStepped:Connect(function()
+        if getgenv().AutoFram then
+            if _G.bypass then
+                CheckLevel()
+                if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value ~= SpawnPoint then
+                    repeat
+                        game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFramePuk
+                        game.Players.localPlayer.Character.HumanoidRootPart.Health = 0
+                    until game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == SpawnPoint
+                end
+            end
+        end
+    end)
+end)
 -- Check Quest
 spawn(function()
     RenderStepped:Connect(function()
-        if _G.AutoFram then
+        if getgenv().AutoFram then
             CheckLevel()
             if lp_ser.PlayerGui.Main.Quest.Visible == false then
                 Tween(CFrameQuest)
@@ -271,7 +292,7 @@ spawn(function()
     end)
 end)
 RenderStepped:Connect(function()
-    if _G.AutoFram then
+    if getgenv().AutoFram then
         pcall(function()
             for i,v in pairs(Enemie:GetChildren()) do
                 for x,y in pairs(Enemie:GetChildren()) do
@@ -292,7 +313,7 @@ end)
 -- AutoFram
 spawn(function()
     RenderStepped:Connect(function()
-        if _G.AutoFram then
+        if getgenv().AutoFram then
             pcall(function()
                 if lp_ser.PlayerGui.Main.Quest.Visible == true then
                     for i,v in pairs(Enemie:GetChildren()) do
@@ -311,19 +332,19 @@ end)
 -- Auto Attack
 spawn(function()
     RenderStepped:Connect(function()
-        if _G.AutoFram then
+        if getgenv().AutoFram then
             CheckLevel()
             pcall(function()
                 for i,v in pairs(Enemie:GetChildren()) do
                     if v.Name == Mon then
                         if (v.HumanoidRootPart.Position - HumRoot.Position).Magnitude < 50 then
                             if v.Humanoid.Health == 0 then
-                                _G.Attack = false
+                                getgenv().Attack = false
                             else
-                                _G.Attack = true
+                                getgenv().Attack = true
                             end
                         else
-                            _G.Attack = false
+                            getgenv().Attack = false
                         end
                     end
                 end
@@ -332,13 +353,13 @@ spawn(function()
     end)
 end)
 spawn(function()
-    Camera:Stop()
-    getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].timeToNextAttack = -1
+    getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].timeToNextAttack = 0
     getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController'].hitboxMagnitude = 80
+    Camera:Stop()
 end)
 spawn(function()
     RenderStepped:Connect(function()
-        if _G.Attack then
+        if getgenv().Attack then
             pcall(function()
                 getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]['activeController']:attack()
             end)
@@ -347,7 +368,7 @@ spawn(function()
 end)
 spawn(function()
     RenderStepped:Connect(function()
-        if _G.Attack then
+        if getgenv().Attack then
             game:GetService'VirtualUser':CaptureController()
             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
         end
@@ -356,7 +377,7 @@ end)
 -- Buso and AbandonQuest
 spawn(function()
     RenderStepped:Connect(function()
-        if _G.AutoFram then
+        if getgenv().AutoFram then
             CheckLevel()
             if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, Mon) then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -366,4 +387,23 @@ spawn(function()
             end
         end
     end)
+end)
+function Tween(C)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+    local Pos = (C.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    local tween_Service = game:GetService("TweenService")
+    local tween_info = TweenInfo.new(Pos/350, Enum.EasingStyle.Linear)
+    local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
+    Warps:Play()
+    if Pos <= 30 then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = C
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+    end
+end
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+        if string.find(v.Name, "Chest") then
+            Tween(v.CFrame)
+        end
+    end
 end)
