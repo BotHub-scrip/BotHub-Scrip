@@ -69,7 +69,6 @@ function Tween(C)
     wait(Pos-2)
     game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
 end
-Tween(CFrame.new(-4954.60107, 295.769989, -2901.80957, -0.99389571, 3.12787805e-08, -0.110323451, 3.31190577e-08, 1, -1.48482462e-08, 0.110323451, -1.84114182e-08, -0.99389571))
 --[[function CheckLevel()
     local Level = lp.Data.Level.Value
     if Level == 1 or Level <= 9 then
