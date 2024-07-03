@@ -1,3 +1,4 @@
+getgenv().AutoFram = true
 getgenv().bypass = true
 -- Fast Attack
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
