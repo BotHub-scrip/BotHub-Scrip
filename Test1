@@ -71,7 +71,7 @@ spawn(function()
     loop:Connect(function()
         if getfenv().AutoFram then
             pcall(function()
-                CheckLevel ()
+                CheckLevel()
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                     if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == LastSpawnPoint then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -87,7 +87,7 @@ spawn(function()
                                     else
                                         getfenv().Attack = false
                                     end
-                                else
+                                elseif v.Name ~= Mon or y.Name ~= Mon then
                                     Tween(CFramePuk)
                                 end
                             end
