@@ -1,26 +1,19 @@
 getfenv().AutoFram = true
 getfenv().bypasstween = true
-local Mon
-local LastSpawnPoint
-local CFrameQuest
-local QuestName
-local QuestNumber
-local CFramePuk
-local Anchoreds = game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
 local loop = game:GetService("RunService").RenderStepped
+local Part = Instance.new("Part",game.Workspace)
+Part.Name = "A"
+Part.Size = Vector3.new(30,1,30)
+Part.Transparency = 0.5
+Part.Anchored = true
+Part.CanCollide = true
 function Tween(C)
-    CheckLevel()
-    Anchoreds = true
     local Pos = (C.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     local tween_Service = game:GetService("TweenService")
-    local tween_info = TweenInfo.new(Pos/365, Enum.EasingStyle.Linear)
-    local Warps = tween_Service:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], tween_info, {CFrame = C})
+    local Warps = tween_Service:Create(Part, TweenInfo.new(Pos/365), {CFrame = C})
     Warps:Play()
     if Pos <= 30 then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = C
-        if game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == LastSpawnPoint then
-            Anchoreds = false
-        end
     end
 end
 function CheckLevel()
@@ -62,7 +55,7 @@ spawn(function()
                         end
                     else
                         if getfenv().bypasstween then
-                            repeat
+                            repeat wait()
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
                                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
                             until getfenv().bypasstween == false or game:GetService("Players").LocalPlayer.Data.LastSpawnPoint.Value == LastSpawnPoint
@@ -85,7 +78,6 @@ spawn(function()
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v.Name == Mon and y.Name == Mon then
-                                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
                                     v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                                     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                                     v.HumanoidRootPart.CanCollide = false
@@ -131,6 +123,15 @@ spawn(function()
         if getfenv().AutoFram then
             pcall(function()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/BotHub-scrip/BotHub-Scrip/main/FastAttack"))()
+            end)
+        end
+    end)
+end)
+spawn(function()
+    loop:Connect(function()
+        if getfenv().AutoFram then
+            pcall(function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0,5,0)
             end)
         end
     end)
