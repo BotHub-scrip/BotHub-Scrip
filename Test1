@@ -26,7 +26,7 @@ function CheckLevel()
         QuestNumber = 1
         CFrameQuest = CFrame.new(1059.9759521484375, 16.488065719604492, 1549.023193359375)
         CFramePuk = CFrame.new(1108.1478271484375, 57.41001510620117, 1623.7769775390625)
-    elseif Level < 15 then
+    elseif Level < 150 then
         Mon = "Monkey"
         LastSpawnPoint = "Jungle"
         QuestName = "JungleQuest"
